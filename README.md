@@ -41,7 +41,7 @@ A self-contained, single-file interactive flashcard app to help prepare for a bi
 | `2` | Rate "Needs Work" |
 | `3` | Rate "Review Again" |
 
-### Content coverage (5 categories, 50+ cards)
+### Content coverage (5 categories, 79 cards)
 - **Pilot** — § 61.57, § 91.3, § 91.123, § 91.107, § 91.15, § 91.17, § 91.211, AIM 8-1 (IMSAFE, hypoxia, CO, scuba)
 - **Aircraft** — §§ 91.9, 91.203 (ARROW), 91.205 (TOMATO FLAMES / FLAPS), 91.207, 91.209, 91.213, 91.215, 91.403–91.413
 - **Environment** — Airport markings, ATC light signals, traffic patterns, altimeter settings, min safe altitudes, hemispheric rule, speed limits, right-of-way, airspace classes, TFRs, weather products, wake turbulence
