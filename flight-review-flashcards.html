@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✈️ Flight Review Flashcards</title>
+<style>
+  :root {
+    --bg: #1a1a2e;
+    --surface: #16213e;
+    --surface2: #0f3460;
+    --text: #e0e0e0;
+    --text-muted: #9090a0;
+    --border: #2a2a4e;
+    --cat1: #e94560;   /* Pilot */
+    --cat2: #0f9b8e;   /* Aircraft */
+    --cat3: #f5a623;   /* Environment */
+    --cat4: #9b59b6;   /* External Pressures */
+    --cat5: #3498db;   /* Cross-Country */
+    --got-it: #27ae60;
+    --needs-work: #e67e22;
+    --review: #e74c3c;
+    --radius: 12px;
+    --shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ─────────────────────────────────────── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex: 1;
+  }
+  header h1 span { color: var(--cat5); }
+  .header-stats {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .stat-pill {
+    background: var(--surface2);
+    border-radius: 20px;
+    padding: 3px 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+  }
+  .stat-pill .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ── Layout ─────────────────────────────────────── */
+  .app {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── Sidebar ─────────────────────────────────────── */
+  aside {
+    width: 220px;
+    min-width: 220px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 16px 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sidebar-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0 16px 6px;
+    margin-top: 8px;
+  }
+  .cat-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    text-align: left;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    border-left: 3px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+    width: 100%;
+  }
+  .cat-btn:hover { background: rgba(255,255,255,0.05); }
+  .cat-btn.active { background: rgba(255,255,255,0.08); }
+  .cat-btn .cat-icon {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .cat-btn .cat-count {
+    margin-left: auto;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 1px 6px;
+  }
+  .sidebar-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 8px 0;
+  }
+  .mode-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    text-align: left;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    transition: color 0.15s, background 0.15s;
+    border-left: 3px solid transparent;
+  }
+  .mode-btn:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+  .mode-btn.active { color: var(--text); background: rgba(255,255,255,0.08); border-color: var(--cat5); }
+
+  /* ── Main area ───────────────────────────────────── */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px 40px;
+    overflow-y: auto;
+    gap: 20px;
+  }
+
+  /* ── Top controls ────────────────────────────────── */
+  .controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 640px;
+  }
+  .btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: background 0.15s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--surface); }
+  .btn:active { transform: scale(0.97); }
+  .btn.primary { background: var(--cat5); border-color: var(--cat5); }
+  .btn.danger { background: var(--review); border-color: var(--review); }
+
+  /* ── Progress area ───────────────────────────────── */
+  .progress-area {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .progress-bar-wrap {
+    height: 6px;
+    background: var(--surface2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cat5), var(--cat1));
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Card ──────────────────────────────────────────── */
+  .card-scene {
+    width: 100%;
+    max-width: 640px;
+    height: 360px;
+    perspective: 1200px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .card-scene:focus { outline: 2px solid var(--cat5); border-radius: var(--radius); }
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4,0.2,0.2,1);
+  }
+  .card-inner.flipped { transform: rotateY(180deg); }
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    padding: 28px 32px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .card-front {
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .card-back {
+    background: var(--surface2);
+    transform: rotateY(180deg);
+    border: 1px solid #1a4a80;
+  }
+  .card-category-tag {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-category-tag::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--cat-color, #888);
+  }
+  .card-question {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.5;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .card-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+  }
+  .card-answer {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    flex: 1;
+    overflow-y: auto;
+  }
+  .card-answer::-webkit-scrollbar { width: 4px; }
+  .card-answer::-webkit-scrollbar-track { background: transparent; }
+  .card-answer::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .card-ref {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* ── Nav + confidence ────────────────────────────── */
+  .nav-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 640px;
+  }
+  .nav-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .nav-btn:hover { background: var(--surface); }
+  .nav-btn:active { transform: scale(0.93); }
+  .confidence-btns {
+    display: flex;
+    gap: 8px;
+  }
+  .conf-btn {
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .conf-btn:active { transform: scale(0.95); }
+  .conf-btn.got-it { background: var(--got-it); color: #fff; }
+  .conf-btn.needs-work { background: var(--needs-work); color: #fff; }
+  .conf-btn.review-again { background: var(--review); color: #fff; }
+  .conf-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* ── Score dashboard ─────────────────────────────── */
+  .dashboard {
+    width: 100%;
+    max-width: 640px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+  }
+  .dashboard h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .score-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .score-card {
+    flex: 1;
+    min-width: 80px;
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .score-card .num { font-size: 1.5rem; font-weight: 700; }
+  .score-card .lbl { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .score-card.got { color: var(--got-it); }
+  .score-card.needs { color: var(--needs-work); }
+  .score-card.rev { color: var(--review); }
+  .score-card.unrated { color: var(--text-muted); }
+
+  /* ── Empty state ─────────────────────────────────── */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .empty-state .icon { font-size: 3rem; }
+
+  /* ── Keyboard hint ───────────────────────────────── */
+  .kbd-hint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .kbd-hint kbd {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: inherit;
+  }
+
+  /* ── Responsive ──────────────────────────────────── */
+  @media (max-width: 700px) {
+    aside { width: 0; min-width: 0; padding: 0; overflow: hidden; }
+    aside.open {
+      position: fixed;
+      top: 0; left: 0;
+      width: 240px;
+      height: 100vh;
+      z-index: 200;
+      padding: 16px 0;
+      box-shadow: var(--shadow);
+    }
+    .menu-toggle { display: flex !important; }
+    .card-scene { height: 300px; }
+    .card-question { font-size: 1.1rem; }
+  }
+  .menu-toggle { display: none; }
+  .overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 199;
+  }
+  .overlay.show { display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="nav-btn menu-toggle" id="menuToggle" title="Categories" style="width:36px;height:36px;font-size:1rem;border-radius:6px;">☰</button>
+  <h1>✈️ Flight Review <span>Flashcards</span></h1>
+  <div class="header-stats">
+    <div class="stat-pill"><span class="dot" style="background:var(--got-it)"></span><span id="hdr-got">0</span> Got It</div>
+    <div class="stat-pill"><span class="dot" style="background:var(--needs-work)"></span><span id="hdr-needs">0</span> Needs Work</div>
+    <div class="stat-pill"><span class="dot" style="background:var(--review)"></span><span id="hdr-review">0</span> Review</div>
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="app">
+  <aside id="sidebar">
+    <div class="sidebar-label">Categories</div>
+    <button class="cat-btn active" data-cat="all" style="border-color:var(--cat5)">
+      <span class="cat-icon" style="background:var(--cat5)"></span>
+      All Cards
+      <span class="cat-count" id="cnt-all">0</span>
+    </button>
+    <button class="cat-btn" data-cat="0" style="">
+      <span class="cat-icon" style="background:var(--cat1)"></span>
+      Pilot
+      <span class="cat-count" id="cnt-0">0</span>
+    </button>
+    <button class="cat-btn" data-cat="1">
+      <span class="cat-icon" style="background:var(--cat2)"></span>
+      Aircraft
+      <span class="cat-count" id="cnt-1">0</span>
+    </button>
+    <button class="cat-btn" data-cat="2">
+      <span class="cat-icon" style="background:var(--cat3)"></span>
+      Environment
+      <span class="cat-count" id="cnt-2">0</span>
+    </button>
+    <button class="cat-btn" data-cat="3">
+      <span class="cat-icon" style="background:var(--cat4)"></span>
+      External Pressures
+      <span class="cat-count" id="cnt-3">0</span>
+    </button>
+    <button class="cat-btn" data-cat="4">
+      <span class="cat-icon" style="background:var(--cat5)"></span>
+      Cross-Country
+      <span class="cat-count" id="cnt-4">0</span>
+    </button>
+
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-label">Review Mode</div>
+    <button class="mode-btn" id="modeAll">📚 All Cards</button>
+    <button class="mode-btn" id="modeReview">🔴 Review Again</button>
+    <button class="mode-btn" id="modeNeeds">🟡 Needs Work</button>
+    <button class="mode-btn" id="modeUnseen">⬜ Unseen Only</button>
+
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-label">Actions</div>
+    <button class="mode-btn" id="resetBtn">🗑️ Reset Ratings</button>
+  </aside>
+
+  <main>
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn primary" id="shuffleBtn">🔀 Shuffle</button>
+      <button class="btn" id="resetDeckBtn">↺ Reset Deck</button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-area">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div class="progress-label">
+        <span id="progressLabel">Card 0 / 0</span>
+        <span id="categoryLabel">All Cards</span>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="card-scene" id="cardScene" tabindex="0" role="button" aria-label="Flashcard — click to flip">
+      <div class="card-inner" id="cardInner">
+        <div class="card-face card-front" id="cardFront">
+          <div class="card-category-tag" id="cardCatTag" style="--cat-color:#888">Category</div>
+          <div class="card-question" id="cardQuestion">Loading…</div>
+          <div class="card-hint">Click or press Space to reveal answer</div>
+        </div>
+        <div class="card-face card-back" id="cardBack">
+          <div class="card-category-tag" id="cardCatTagBack" style="--cat-color:#888">Category</div>
+          <div class="card-answer" id="cardAnswer"></div>
+          <div class="card-ref" id="cardRef"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav + confidence -->
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn" title="Previous (←)">◀</button>
+      <div class="confidence-btns">
+        <button class="conf-btn got-it" id="gotItBtn" disabled>Got It ✓</button>
+        <button class="conf-btn needs-work" id="needsWorkBtn" disabled>Needs Work ~</button>
+        <button class="conf-btn review-again" id="reviewAgainBtn" disabled>Review Again ✗</button>
+      </div>
+      <button class="nav-btn" id="nextBtn" title="Next (→)">▶</button>
+    </div>
+
+    <div class="kbd-hint">
+      <kbd>←</kbd> Prev &nbsp; <kbd>Space</kbd> Flip &nbsp; <kbd>→</kbd> Next &nbsp; <kbd>R</kbd> Reset deck
+    </div>
+
+    <!-- Score dashboard -->
+    <div class="dashboard">
+      <h3>📊 Session Progress</h3>
+      <div class="score-row">
+        <div class="score-card got"><div class="num" id="dash-got">0</div><div class="lbl">Got It</div></div>
+        <div class="score-card needs"><div class="num" id="dash-needs">0</div><div class="lbl">Needs Work</div></div>
+        <div class="score-card rev"><div class="num" id="dash-rev">0</div><div class="lbl">Review</div></div>
+        <div class="score-card unrated"><div class="num" id="dash-unseen">0</div><div class="lbl">Unseen</div></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════
+// FLASHCARD DATA
+// ══════════════════════════════════════════════════
+const CATEGORIES = [
+  { name: "Pilot", color: "var(--cat1)" },
+  { name: "Aircraft", color: "var(--cat2)" },
+  { name: "Environment", color: "var(--cat3)" },
+  { name: "External Pressures", color: "var(--cat4)" },
+  { name: "Cross-Country", color: "var(--cat5)" },
+];
+
+// cat: 0=Pilot, 1=Aircraft, 2=Environment, 3=External Pressures, 4=Cross-Country
+const ALL_CARDS = [
+
+  // ── CATEGORY 0: PILOT ────────────────────────────────────────────
+
+  { cat: 0, q: "§ 61.57 — What are the day VFR currency requirements to carry passengers (persons)?",
+    a: "Within the preceding 90 days: 3 takeoffs and 3 landings as sole manipulator of the controls. Same category, class, and type (if type rating required). Tailwheel aircraft: all 3 landings must be to a full stop.",
+    ref: "14 CFR § 61.57(a)" },
+
+  { cat: 0, q: "§ 61.57 — What are the night VFR currency requirements to carry passengers (persons)?",
+    a: "Within the preceding 90 days: 3 takeoffs and 3 full-stop landings at night (1 hour after sunset to 1 hour before sunrise). Same category, class, and type (if type rating required). Tailwheel aircraft: full-stop only.",
+    ref: "14 CFR § 61.57(b)" },
+
+  { cat: 0, q: "§ 61.57 — What are the instrument currency requirements?",
+    a: "Within the preceding 6 calendar months: 6 instrument approaches, holding procedures and tasks, intercepting and tracking courses via navigation systems. May be in actual IMC, simulated IMC under a safety pilot, or in an approved sim/ATD.",
+    ref: "14 CFR § 61.57(c)" },
+
+  { cat: 0, q: "§ 61.57 — What changed in the Dec 2024 revision to § 61.57 regarding 'passengers'?",
+    a: "The word 'passengers' was changed to 'persons.' This means a non-current pilot can carry another pilot (a person) for training. An instructor who has lapsed currency can now provide dual instruction to a student (who is also a 'person'), allowing recurrency through training. The instructor no longer needed to be current before providing the flight.",
+    ref: "14 CFR § 61.57, FAA Dec 2024 amendment" },
+
+  { cat: 0, q: "§ 91.3 — What is the PIC's authority and responsibility?",
+    a: "The PIC is directly responsible for and has final authority over the operation of the aircraft. In an in-flight emergency requiring immediate action, the PIC may deviate from any rule to the extent necessary to meet that emergency. Upon request, must submit a written report to the FAA Administrator.",
+    ref: "14 CFR § 91.3" },
+
+  { cat: 0, q: "§ 91.123 — When may you deviate from an ATC clearance, and what must you do after?",
+    a: "You may deviate from an ATC clearance only when an emergency exists. After deviating in an emergency, notify ATC as soon as possible. If ATC gives you priority, they may request a written report within 48 hours. If you believe a clearance is unsafe, you can request an amended clearance — but you must comply unless an emergency exists.",
+    ref: "14 CFR § 91.123" },
+
+  { cat: 0, q: "§ 91.107 — What are the safety belt requirements?",
+    a: "During takeoff and landing, each person on board must be in a seat with safety belt (and shoulder harness, if installed) properly fastened. The PIC must brief passengers on safety belt use and must ensure they comply. Children under 2 may be held by an adult on Part 91 operations (no separate restraint required). PIC must inform occupants when seat belt use is required during flight.",
+    ref: "14 CFR § 91.107" },
+
+  { cat: 0, q: "§ 91.15 — When is it permissible to drop objects from an aircraft?",
+    a: "You may drop objects from an aircraft as long as reasonable precautions are taken to avoid injury or damage to persons or property on the surface. No person may drop any object that creates a hazard to persons or property on the ground.",
+    ref: "14 CFR § 91.15" },
+
+  { cat: 0, q: "§ 91.17 — What are the alcohol/drug rules for acting as crew member?",
+    a: "No crewmember may: (1) consume alcohol within 8 hours before acting as crew ('bottle to throttle'); (2) have a BAC of 0.04% or greater; (3) act as crew while under the influence of alcohol or any drug that affects faculties; (4) carry a person who appears to be intoxicated (except medical patients under professional care).",
+    ref: "14 CFR § 91.17" },
+
+  { cat: 0, q: "§ 91.211 — What are the supplemental oxygen requirements for unpressurized aircraft?",
+    a: "12,500–14,000 ft MSL: Required flight crew must use supplemental oxygen for portions exceeding 30 minutes at these altitudes.\n\nAbove 14,000 ft MSL: Required flight crew must use oxygen at ALL times.\n\nAbove 15,000 ft MSL: Oxygen must be provided to EVERY occupant (they don't have to use it, but it must be available).",
+    ref: "14 CFR § 91.211" },
+
+  { cat: 0, q: "AIM 8-1 — What is the IMSAFE checklist?",
+    a: "I – Illness: Am I sick or feeling ill?\nM – Medication: Am I taking any drugs that impair performance?\nS – Stress: Am I under psychological or emotional stress?\nA – Alcohol: Did I consume alcohol within 8 hours? Is my BAC < 0.04%?\nF – Fatigue: Am I adequately rested? Have I had enough sleep?\nE – Eating/Emotion: Have I eaten properly? Am I emotionally ready to fly?",
+    ref: "AIM 8-1-1" },
+
+  { cat: 0, q: "AIM 8-1 — What is hypoxia and how do you recognize and treat it?",
+    a: "Hypoxia is a state of oxygen deficiency. Symptoms include euphoria, headache, impaired judgment, tingling, cyanosis (blue lips/fingertips), and eventual incapacitation. Insidious because it impairs the judgment needed to recognize it.\n\nTreatment: Descend immediately, use supplemental oxygen. Night vision degrades above 5,000 ft.",
+    ref: "AIM 8-1-2" },
+
+  { cat: 0, q: "AIM 8-1 — What is hyperventilation, and how is it treated?",
+    a: "Hyperventilation is excessive breathing (too fast/deep), expelling too much CO₂. Symptoms mimic hypoxia: dizziness, tingling in fingers, nausea, possible unconsciousness.\n\nTreatment: Consciously slow your breathing, breathe into a bag, talk aloud. Trust instruments — spatial disorientation may accompany it.",
+    ref: "AIM 8-1-3" },
+
+  { cat: 0, q: "AIM 8-1 — What is spatial disorientation, and what should a pilot do?",
+    a: "Spatial disorientation occurs when a pilot cannot correctly interpret the aircraft's attitude, motion, or position relative to the Earth's surface. The vestibular and visual systems can give false information, especially in IMC.\n\nPrevention: Trust your instruments. Do not rely on the 'seat of the pants' feel. Recognize leans, graveyard spiral, coriolis illusion, and somatogravic illusion.",
+    ref: "AIM 8-1-5" },
+
+  { cat: 0, q: "AIM 8-1 — What are the carbon monoxide (CO) precautions?",
+    a: "CO is an odorless, colorless gas produced by combustion. It competes with oxygen in the blood. Symptoms: headache, dizziness, drowsiness, blurred vision.\n\nIn the aircraft: If suspected, turn off cabin heat (a common CO source via exhaust system leaks), open fresh air vents, use supplemental oxygen if available, and land immediately.",
+    ref: "AIM 8-1-4" },
+
+  { cat: 0, q: "AIM 8-1 — What are the scuba diving wait times before flying?",
+    a: "After non-decompression dives: wait at least 12 hours before flying.\n\nAfter dives requiring decompression stops: wait at least 24 hours before flying.\n\nReason: Residual nitrogen in the blood can expand at altitude (like decompression sickness).",
+    ref: "AIM 8-1-2, FAA Medical Facts" },
+
+  // ── CATEGORY 1: AIRCRAFT ─────────────────────────────────────────
+
+  { cat: 1, q: "§ 91.9 — What are the requirements regarding the aircraft flight manual, markings, and placards?",
+    a: "No person may operate a civil aircraft without complying with the operating limitations specified in the approved aircraft flight manual (AFM/POH), markings, and placards. The AFM must be in the aircraft and available to the crew. You cannot operate contrary to any limitation.",
+    ref: "14 CFR § 91.9" },
+
+  { cat: 1, q: "§ 91.203 — What documents must be in the aircraft? (ARROW)",
+    a: "A – Airworthiness Certificate (displayed and visible)\nR – Registration Certificate\nR – Radio station license (required for international operations)\nO – Operating limitations (AFM/POH or placards)\nW – Weight and balance data\n\nAirworthiness and Registration must be aboard for domestic Part 91 ops.",
+    ref: "14 CFR § 91.203" },
+
+  { cat: 1, q: "§ 91.205 — What instruments/equipment are required for VFR day flight? (TOMATO FLAMES)",
+    a: "T – Tachometer (each engine)\nO – Oil pressure gauge\nM – Manifold pressure gauge (if altitude engine)\nA – Airspeed indicator\nT – Temperature gauge (liquid-cooled engines)\nO – Oil temperature gauge (air-cooled)\nF – Fuel gauge (each tank)\nL – Landing gear position indicator (retractable gear)\nA – Altimeter\nM – Magnetic direction indicator (compass)\nE – ELT\nS – Safety belts (shoulder harnesses for front seats)",
+    ref: "14 CFR § 91.205(b)" },
+
+  { cat: 1, q: "§ 91.205 — What additional equipment is required for VFR night flight? (FLAPS)",
+    a: "In addition to TOMATO FLAMES, add FLAPS:\nF – Fuses (one spare set or three of each type installed)\nL – Landing light (if operated for hire)\nA – Anti-collision light system\nP – Position lights (navigation lights)\nS – Source of electrical power adequate for all equipment",
+    ref: "14 CFR § 91.205(c)" },
+
+  { cat: 1, q: "§ 91.207 — What are the ELT requirements?",
+    a: "Most U.S.-registered civil aircraft must have an ELT.\n\nInspection: Within the preceding 12 calendar months — inspect for proper installation, battery corrosion, operation of controls, and adequacy of signal.\n\nBattery: Must be replaced (or recharged for rechargeables) after 1 hour cumulative use OR when 50% of battery useful life has expired.\n\nExceptions: Ferry flights, new aircraft delivery, flight test, training within 50 NM of training airport.",
+    ref: "14 CFR § 91.207" },
+
+  { cat: 1, q: "§ 91.209 — When are position lights (nav lights) required?",
+    a: "Position lights must be displayed from sunset to sunrise. Anti-collision lights must be on when operating. The PIC may turn off anti-collision lights if, in their judgment, the lights are a safety hazard (e.g., causing disorientation in instrument meteorological conditions).",
+    ref: "14 CFR § 91.209" },
+
+  { cat: 1, q: "§ 91.215 — When is a Mode C transponder required?",
+    a: "Mode C (altitude encoding) transponder required:\n• In Class A, B, and C airspace\n• Within 30 NM of a Class B primary airport (the 'Mode C veil')\n• Above 10,000 ft MSL (except at or below 2,500 ft AGL)\n• In all airspace above the ceiling of a Class B/C area to 10,000 ft MSL",
+    ref: "14 CFR § 91.215" },
+
+  { cat: 1, q: "§ 91.213 — How do you deal with an inoperative instrument when there is NO MEL?",
+    a: "4-step process:\n1. Is it required by § 91.205 for the flight conditions (VFR day, VFR night, IFR)? If yes → cannot fly.\n2. Is it required by an AD for the specific flight? If yes → cannot fly.\n3. Is it required by any other regulation for the flight? If yes → cannot fly.\n4. Is it required for safe operations under the conditions of flight? If yes → cannot fly.\n\nIf NO to all four: Deactivate/remove the item, placard 'INOPERATIVE,' make a maintenance record entry.",
+    ref: "14 CFR § 91.213" },
+
+  { cat: 1, q: "§§ 91.403/405/407 — Who is responsible for aircraft maintenance, and what is required before flight after maintenance?",
+    a: "§ 91.403: Owner/operator is primarily responsible for maintaining the aircraft in an airworthy condition.\n§ 91.405: Must have required inspections completed and discrepancies corrected.\n§ 91.407: After maintenance, preventive maintenance, or alterations: aircraft must be approved for return to service by an authorized person, and a maintenance record entry must be made before it can be operated.",
+    ref: "14 CFR §§ 91.403, 91.405, 91.407" },
+
+  { cat: 1, q: "§ 91.409 — What are the annual inspection requirements?",
+    a: "All civil aircraft operated under Part 91 must have an annual inspection every 12 calendar months. Must be performed by an FAA-certificated IA (Inspection Authorization), certified repair station, or the manufacturer.\n\nIf operated for hire or flight instruction for hire: 100-hour inspection required (by any A&P), but can be exceeded by up to 10 hours to reposition the aircraft, and that overage counts against the next interval.",
+    ref: "14 CFR § 91.409" },
+
+  { cat: 1, q: "§ 91.409 — What are Airworthiness Directives (ADs) and how do they work?",
+    a: "ADs are legally mandatory FAA actions to correct unsafe conditions in aircraft, engines, propellers, or appliances. They must be complied with per the terms and timeframe specified in the AD. They are recorded in the aircraft maintenance logs and continue to apply after ownership changes. Emergency ADs may require immediate action.",
+    ref: "14 CFR § 91.409(e), 14 CFR Part 39" },
+
+  { cat: 1, q: "§ 91.411 — When must the altimeter and pitot-static system be inspected?",
+    a: "The altimeter and pitot-static system must be tested and inspected within the preceding 24 calendar months for IFR operations. This test must be performed by a certificated repair station. This is not required for VFR-only flight.",
+    ref: "14 CFR § 91.411" },
+
+  { cat: 1, q: "§ 91.413 — When must the transponder be inspected?",
+    a: "The transponder must be tested and inspected within the preceding 24 calendar months. This applies to any aircraft that has a transponder — even if not required by Part 91. The test must be performed by a certificated repair station.",
+    ref: "14 CFR § 91.413" },
+
+  // ── CATEGORY 2: ENVIRONMENT ──────────────────────────────────────
+
+  { cat: 2, q: "AIM 2-3 — What are the different types of runway markings?",
+    a: "Visual runway: Centerline, designation numbers only.\n\nNon-precision instrument runway: Adds threshold markings (8 stripes), designation, and centerline.\n\nPrecision instrument runway: Adds touchdown zone markers (pairs), aiming point markings (large rectangles), fixed-distance markings, side stripes.\n\nDisplaced threshold: White arrows leading up to the threshold bar; the area before the threshold may be used for taxi and rollout but NOT for landing.",
+    ref: "AIM 2-3-3, 2-3-4" },
+
+  { cat: 2, q: "AIM 2-3 — What do runway hold short markings look like, and which side do you hold on?",
+    a: "Runway hold short markings consist of 4 yellow lines: 2 solid lines and 2 dashed lines.\n\nThe SOLID side faces the taxiway — you hold on the solid side (before the solid lines) when holding short.\nThe DASHED side faces the runway.\n\nMemory aid: 'Solid = stop. Dashed = may proceed (if cleared).' Never cross the solid lines without clearance at a towered airport.",
+    ref: "AIM 2-3-5" },
+
+  { cat: 2, q: "AIM 2-3 — What is a blast pad/stopway, and what do yellow chevrons mean?",
+    a: "Yellow chevrons mark areas that are NOT available for taxiing, takeoff, or landing — they are blast pads or overrun/stopway areas. You may not use these areas for any aircraft operation. They typically appear before a displaced threshold or at the runway end.",
+    ref: "AIM 2-3-4" },
+
+  { cat: 2, q: "§ 91.125 — What are the ATC light gun signals and their meanings?",
+    a: "Steady Green: Ground=Cleared for takeoff / In Flight=Cleared to land\nFlashing Green: Ground=Cleared to taxi / In Flight=Return for landing\nSteady Red: Ground=Stop / In Flight=Give way, continue circling\nFlashing Red: Ground=Taxi clear of runway / In Flight=Airport unsafe, do not land\nFlashing White: Ground=Return to starting point / In Flight=Not applicable\nAlternating Red & Green: Ground=Exercise extreme caution / In Flight=Exercise extreme caution",
+    ref: "14 CFR § 91.125" },
+
+  { cat: 2, q: "§ 91.126 — What are the traffic pattern rules at a non-towered airport?",
+    a: "Class G airport: All turns must be made to the left unless a right-hand traffic pattern is established. Left traffic is standard.\n\nEntry: 45° to the downwind leg at pattern altitude (typically 1,000 ft AGL).\n\nCTAF: Self-announce position and intentions on the Common Traffic Advisory Frequency.\n\nPattern altitude: Usually 800–1,000 ft AGL (check A/FD or Chart Supplement for specific airports).",
+    ref: "14 CFR § 91.126, AIM 4-3-3" },
+
+  { cat: 2, q: "What are the standard traffic pattern legs and how do you enter?",
+    a: "Legs: Upwind → Crosswind → Downwind → Base → Final\n\nStandard entry: Arrive at pattern altitude, enter the pattern at a 45° angle to the midpoint of the downwind leg (heading toward the runway). This allows pilots to see and be seen before joining downwind.\n\nAltitude: 800–1,000 ft AGL (unless published otherwise). Depart straight out or turn 45° in the direction of the traffic pattern.",
+    ref: "AIM 4-3-3" },
+
+  { cat: 2, q: "§ 91.121 — What altimeter setting must you use, and when does it change?",
+    a: "Below 18,000 ft MSL: Set your altimeter to the current local altimeter setting broadcast by a station within 100 NM. If unavailable, use the setting of a station along the route.\n\nAt or above 18,000 ft MSL (Class A): Set altimeter to 29.92\" Hg (standard atmosphere) — you are now operating in Flight Levels.",
+    ref: "14 CFR § 91.121" },
+
+  { cat: 2, q: "§ 91.119 — What are the minimum safe altitudes over various types of areas?",
+    a: "Anywhere: Altitude that allows a safe emergency landing without undue hazard.\n\nCongested area (city/town/settlement): At least 1,000 ft above the highest obstacle within a 2,000 ft horizontal radius.\n\nNon-congested area: At least 500 ft above the surface.\n\nOpen water or sparsely populated: Not closer than 500 ft to any person, vessel, vehicle, or structure.",
+    ref: "14 CFR § 91.119" },
+
+  { cat: 2, q: "§ 91.177 — What are IFR minimum altitudes?",
+    a: "Must fly at or above the minimum IFR altitude (MEA, MOCA, etc.) or ATC-assigned altitude.\n\nOver mountainous terrain: 2,000 ft above the highest obstacle within 4 NM of the course.\n\nOver non-mountainous terrain: 1,000 ft above the highest obstacle within 4 NM of the course.\n\nIf no published minimum, use these as the minimum altitudes.",
+    ref: "14 CFR § 91.177" },
+
+  { cat: 2, q: "§§ 91.159 & 91.179 — What is the hemispheric (cruising altitude) rule?",
+    a: "Applies when above 3,000 ft AGL and not in controlled airspace requiring specific altitudes.\n\nVFR:\n0°–179° magnetic (eastbound) → Odd thousands + 500 ft (3,500; 5,500; 7,500…)\n180°–359° magnetic (westbound) → Even thousands + 500 ft (4,500; 6,500; 8,500…)\n\nIFR:\n0°–179° magnetic (eastbound) → Odd thousands (3,000; 5,000; 7,000…)\n180°–359° magnetic (westbound) → Even thousands (4,000; 6,000; 8,000…)",
+    ref: "14 CFR §§ 91.159, 91.179" },
+
+  { cat: 2, q: "§ 91.117 — What are the speed limits?",
+    a: "Below 10,000 ft MSL: 250 KIAS maximum.\n\nWithin Class B airspace or below Class B within a 30 NM radius of the primary airport AND within 2,500 ft AGL: 200 KIAS maximum.\n\nWithin Class C or D airspace surface area: 200 KIAS maximum within 4 NM and up to 2,500 ft AGL of the primary airport.\n\nAll airspace: No person may operate an aircraft below 10,000 ft MSL at a speed greater than 250 KIAS.",
+    ref: "14 CFR § 91.117" },
+
+  { cat: 2, q: "§ 91.113 — What is the right-of-way hierarchy, and what are the specific rules?",
+    a: "Hierarchy (always yields to those above it):\nBalloon > Glider > Airship > Aircraft towing/towed > Power-driven aircraft\n\nSpecific rules:\nConverging: The aircraft on the right has right-of-way.\nHead-on: Both aircraft turn right.\nOvertaking: The aircraft being overtaken has right-of-way; overtaking aircraft passes to the right.\nLanding: Aircraft on final/landing has right-of-way; lower aircraft on final has priority.\nIn distress: Always has right-of-way over all other aircraft.",
+    ref: "14 CFR § 91.113" },
+
+  { cat: 2, q: "AIM Ch. 3 — What are the entry requirements and weather minimums for Class B airspace?",
+    a: "Class B (e.g., Atlanta, LAX):\nFloor/Ceiling: Defined by segmented circles, usually SFC to 10,000 ft.\nEntry: Specific ATC clearance required ('Cleared into the Class Bravo').\nEquipment: Mode C transponder, two-way radio.\nWeather minimums: 3 statute miles visibility, clear of clouds.\nSpeed: 250 KIAS below Class B, 200 KIAS within 30 NM of Class B primary airport at/below 2,500 AGL.",
+    ref: "AIM 3-2-3, 14 CFR § 91.131" },
+
+  { cat: 2, q: "AIM Ch. 3 — What are the entry requirements and weather minimums for Class C and D airspace?",
+    a: "Class C (e.g., Fresno, Providence):\nEntry: Establish two-way radio communication before entry.\nEquipment: Mode C transponder, radio.\nWeather: 3 SM vis; 500 below/1,000 above/2,000 horizontal from clouds.\n\nClass D (e.g., smaller airports with towers):\nEntry: Establish two-way radio communication before entry.\nEquipment: Radio only (no transponder required unless within a B veil).\nWeather: Same as Class C — 3 SM, 500/1,000/2,000.",
+    ref: "AIM 3-2-4, 3-2-5" },
+
+  { cat: 2, q: "AIM Ch. 3 — What are Class E and Class G airspace weather minimums?",
+    a: "Class E (controlled, but no clearance required):\nBelow 10,000 ft MSL: 3 SM vis; 500 below/1,000 above/2,000 horizontal from clouds.\nAt/above 10,000 ft MSL: 5 SM vis; 1,000 below/1,000 above/1 SM horizontal.\n\nClass G (uncontrolled):\nDay, below 1,200 AGL: 1 SM vis, clear of clouds.\nDay, above 1,200 AGL below 10,000 MSL: 1 SM, 500 below/1,000 above/2,000 horizontal.\nNight: 3 SM, 500 below/1,000 above/2,000 horizontal.",
+    ref: "AIM 3-2-6, 3-3-1, 14 CFR § 91.155" },
+
+  { cat: 2, q: "§ 91.139 / NOTAM system — What are TFRs and when do they apply?",
+    a: "Temporary Flight Restrictions (TFRs) are issued to protect persons/property from hazards, provide safe environment for disaster relief/security, prevent unsafe congestion over incident sites, or protect VIPs.\n\nTypes: Disaster/hazard (§ 91.137), national security (§ 91.141), space operations (§ 91.143), Presidential movement (SFRA/TFR).\n\nPilots MUST check NOTAMs before every flight. TFRs are issued via NOTAM and active through the FAA's TFR website (tfr.faa.gov).",
+    ref: "14 CFR § 91.139, AIM 3-5-3" },
+
+  { cat: 2, q: "AIM 7-1 — What are the key weather products a pilot should use for flight planning?",
+    a: "METAR: Routine aviation weather report (hourly). Includes wind, visibility, weather/sky, temp/dew point, altimeter.\nTAF: Terminal Aerodrome Forecast — 5 SM radius, 24–30 hour forecast, issued 4x/day.\nSIGMET: Significant meteorological information (severe/extreme turbulence, icing, volcanic ash, tropical cyclone). Applies broadly.\nAIRMET: Airmen's Meteorological Information — moderate icing (Sierra), turbulence (Tango), IFR/mountain obscuration (Zulu).\nPIREP: Pilot weather reports. Crucial for confirming conditions.\nWinds Aloft (FB): Forecast winds and temps at various altitudes.",
+    ref: "AIM 7-1-3 through 7-1-27" },
+
+  { cat: 2, q: "AIM 7-3 — What causes wake turbulence, and what are the avoidance procedures?",
+    a: "Cause: Wingtip vortices generated by any wing producing lift; greatest when the aircraft is heavy, clean, and slow (e.g., on approach).\n\nBehavior: Vortices sink at ~300–500 fpm, move laterally with crosswind.\n\nAvoidance:\n• Landing behind a large: Land beyond its touchdown point.\n• Taking off behind a large: Rotate before its rotation point, fly above and upwind of its flight path.\n• En route: Fly above and upwind of a larger aircraft's course.\n• Wait 3 minutes after a heavy departs if wind is calm; less if there's a crosswind pushing the vortices off the runway.",
+    ref: "AIM 7-3-1 through 7-3-6" },
+
+  { cat: 1, q: "What is preventive maintenance, and who may perform it?",
+    a: "Preventive maintenance is simple, minor preservation operations and the replacement of small standard parts that do not involve complex assembly operations. The owner or operator of an aircraft who holds at least a private pilot certificate may perform preventive maintenance on that aircraft (not used for air carrier ops).\n\nExamples: changing engine oil, servicing landing gear struts, replacing landing/nav light bulbs, cleaning/replacing fuel strainers, applying preservative compounds.",
+    ref: "14 CFR § 43.3(g), Part 43 Appendix A" },
+
+  { cat: 1, q: "What is a Minimum Equipment List (MEL) and how is it used?",
+    a: "An MEL is an approved document that allows an aircraft to operate with certain inoperative equipment. It is aircraft-specific and must be FAA-approved.\n\nWith an MEL:\n• Each item lists whether the equipment is required (GO/NO-GO) and any operational limitations or placarding requirements.\n• The PIC follows the MEL procedures (O-procedures for crew, M-procedures for maintenance) to defer the item legally.\n• The inoperative item must be placarded.\n\nNot all aircraft have MELs — most general aviation aircraft operate under the § 91.213 four-step process instead.",
+    ref: "14 CFR § 91.213(a), AC 91-67" },
+
+  // ── CATEGORY 3: EXTERNAL PRESSURES ──────────────────────────────
+
+  { cat: 3, q: "What are 'personal minimums' and why are they important?",
+    a: "Personal minimums are self-imposed, conservative limits that are stricter than legal minimums. They reflect your actual experience, currency, and comfort level.\n\nCategories to define:\n• Ceiling (e.g., no lower than 2,000 ft)\n• Visibility (e.g., at least 5 SM)\n• Crosswind (e.g., max 10 kts)\n• Night operations (only with X hrs recent night experience)\n• Fatigue (min 8 hours sleep)\n• Runway length (at least 150% of required)\n\nUpdate your personal minimums as your experience grows. They are living limits, not fixed forever.",
+    ref: "FAA-P-8740-56, Risk Management Handbook" },
+
+  { cat: 3, q: "What is the 3-P model of risk management?",
+    a: "Perceive → Process → Perform\n\nPerceive: Identify the hazards using the PAVE checklist.\nProcess: Analyze the risk — How likely? How severe? What are mitigations?\nPerform: Implement a plan — modify the flight, delay, cancel, or add safety margins.\n\nThis is a continuous, iterative process throughout the flight.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2)" },
+
+  { cat: 3, q: "What is the PAVE checklist and what does each letter stand for?",
+    a: "P – Pilot: Am I ready? Currency, experience, health (IMSAFE), proficiency.\nA – Aircraft: Is it airworthy? Performance adequate? Fuel and equipment?\nV – enVironment: Weather, terrain, airspace, NOTAMs, TFRs, airports.\nE – External Pressures: Get-there-itis, passenger expectations, schedule, real or perceived pressure to fly.\n\nUse PAVE to systematically perceive hazards before and during flight.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2)" },
+
+  { cat: 3, q: "What are the five hazardous attitudes and their antidotes?",
+    a: "Anti-authority ('Don't tell me!'): 'Follow the rules — they are usually right.'\n\nImpulsivity ('Do it quickly!'): 'Not so fast — think first.'\n\nInvulnerability ('It won't happen to me'): 'It could happen to me.'\n\nMacho ('I can do it'): 'Taking chances is foolish.'\n\nResignation ('What's the use?'): 'I'm not helpless — I can make a difference.'",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2), AC 60-22" },
+
+  { cat: 3, q: "What is the Airman Certification Standards (ACS), and how does it differ from the PTS?",
+    a: "The ACS replaced the Practical Test Standards (PTS) starting in 2016. It integrates three components for each task:\n1. Knowledge (what the applicant must know)\n2. Risk Management (what hazards must be identified/mitigated)\n3. Skills (what the applicant must be able to do)\n\nThe ACS uses specific standards with measurable performance criteria. Flight reviews and checkrides should align with ACS task areas for the applicable certificate/rating.",
+    ref: "FAA Airman Certification Standards" },
+
+  { cat: 3, q: "What is 'get-there-itis' and how does it affect decision making?",
+    a: "Get-there-itis (also called 'press-on-itis') is the compulsion to complete a flight despite worsening conditions or mounting evidence that continuing is unsafe. Pilots override good judgment due to schedule pressure, embarrassment, or emotional commitment to arriving.\n\nSigns: minimizing adverse weather, skipping alternate fuel stops, ignoring personal minimums.\n\nAntidote: Pre-decide your 'go/no-go' criteria before the flight so the decision is made with a clear head, not in the cockpit under pressure.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2)" },
+
+  { cat: 3, q: "What is the DECIDE model of aeronautical decision making (ADM)?",
+    a: "D – Detect: Recognize that a change has occurred requiring action.\nE – Estimate: Estimate the need to react to the change.\nC – Choose: Choose a desirable outcome for the flight.\nI – Identify: Identify actions that could successfully control the change.\nD – Do: Take the necessary action.\nE – Evaluate: Evaluate the effect of the action.\n\nThe DECIDE model is a continuous loop — you keep cycling through it as the flight evolves.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2), AC 60-22" },
+
+  { cat: 3, q: "How is risk assessed in flight, and what is the Risk = Probability × Severity framework?",
+    a: "Risk is the probability of a hazard causing harm, combined with the severity of that harm.\n\nRisk matrix approach:\n• Probability: Improbable / Remote / Occasional / Probable\n• Severity: Negligible / Marginal / Critical / Catastrophic\n\nHigher probability + higher severity = highest risk. Mitigate by reducing probability (e.g., better weather briefing) or reducing severity (e.g., carrying more fuel, diverting earlier).\n\nGoal: keep residual risk to an acceptable level before and during flight.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2)" },
+
+  { cat: 3, q: "What is Crew Resource Management (CRM) and why does it apply to single-pilot GA operations?",
+    a: "CRM is the effective use of all available resources — people, hardware, and information — to achieve safe and efficient flight operations.\n\nFor single-pilot GA (sometimes called SRM — Single-pilot Resource Management), it includes:\n• Using ATC, FSS, and passengers as information resources\n• Task management (avoiding head-down distraction)\n• Automation management (EFB, GPS, autopilot)\n• Situational awareness\n• Decision making under pressure\n\nMany GA accidents are attributable to failures of CRM rather than stick-and-rudder skill.",
+    ref: "FAA-H-8083-2, AC 60-22" },
+
+  { cat: 3, q: "What is situational awareness (SA) and what causes SA loss in the cockpit?",
+    a: "Situational awareness is the accurate perception of all the factors and conditions that affect the aircraft, crew, and passengers during a specific period of time.\n\nComponents: knowing where you are, what the aircraft is doing, where it will be in 5–10 minutes, what the weather is doing, and what ATC expects.\n\nCauses of SA loss:\n• Fixation (tunnel vision on one instrument or task)\n• Distraction (EFB, passenger)\n• Complacency\n• High workload without automation\n• Fatigue or stress\n\nCue: 'I haven't checked fuel/altitude/position in the last __ minutes.'",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2)" },
+
+  { cat: 3, q: "What are the effects of fatigue on pilot performance?",
+    a: "Fatigue degrades virtually every cognitive and motor skill needed for flying:\n• Slower reaction times\n• Reduced vigilance and attention\n• Impaired judgment and decision making\n• Memory lapses\n• Increased errors of omission (forgetting checklist items)\n\nTypes:\n• Acute fatigue: Short-term tiredness, relieved by rest.\n• Chronic fatigue: Cumulative, not resolved by a single night's sleep.\n• Transient fatigue: Sleep disruption (e.g., early morning flight, time zone change).\n\nFAA guidance: 8 hours of sleep in the 24 hours before flight is the minimum. There is no legal rest requirement for Part 91 PIC.",
+    ref: "AIM 8-1-1, FAA Medical Facts for Pilots" },
+
+  { cat: 3, q: "What is 'plan continuation bias' and how does it cause accidents?",
+    a: "Plan continuation bias (also called 'continuation error') is the unconscious tendency to continue an original plan despite evidence that it is no longer safe or appropriate.\n\nExamples:\n• Pressing into deteriorating weather because 'we've come this far'\n• Continuing an unstable approach to avoid a go-around\n• Attempting to land with fuel that is below minimums\n\nAntidote: Pre-set decision criteria ('If X happens, I will do Y') and hold yourself accountable to them. Commit to go-arounds and diversions before encountering the trigger condition.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2)" },
+
+  { cat: 3, q: "What is 'startle and surprise' in aviation, and how should pilots prepare?",
+    a: "Startle is an involuntary physical response to an unexpected event (e.g., unexpected GPWS, sudden IMC, bird strike). Surprise is a cognitive response when something unexpected occurs that was not anticipated.\n\nEffects: Startle can temporarily freeze a pilot or cause incorrect automatic responses. Surprise can disrupt decision making.\n\nPreparation:\n• 'Chair fly' emergency scenarios regularly.\n• Brief 'what if' scenarios before each flight.\n• Practice abnormal/emergency procedures to build automaticity.\n• Aviate first — fly the aircraft before troubleshooting.",
+    ref: "FAA Safety Briefing, AOPA Air Safety Institute" },
+
+  { cat: 3, q: "What external pressures can affect a pilot's decision to fly, and how should they be managed?",
+    a: "External pressures include:\n• Schedule: 'I have to be there by noon.'\n• Passengers: Fear of disappointing friends/family.\n• Cost: 'It's expensive to wait another day.'\n• Peer pressure: 'Other pilots flew in this weather.'\n• Employer: Job or career risk.\n\nManagement strategies:\n• Build in margin when scheduling flights.\n• Communicate limits to passengers before the flight date.\n• Use the PAVE checklist with a clear mind — not in the airplane.\n• Remember: the check ride, medical, certificate — everything is voided in an accident.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2)" },
+
+  { cat: 3, q: "What is aeronautical decision making (ADM), and how does it differ from traditional decision making?",
+    a: "ADM is a systematic approach to the mental process used by pilots to consistently determine the best course of action for a given set of circumstances.\n\nTraditional decision making: If A, then B — simple rule-based response.\n\nADM adds risk perception, self-assessment, and the management of attitudes and biases. It acknowledges that the pilot is the most complex variable in the aviation system.\n\nKey ADM tools: IMSAFE, PAVE, 3-P model, DECIDE model, hazardous attitudes/antidotes, personal minimums.",
+    ref: "FAA Risk Management Handbook (FAA-H-8083-2), AC 60-22" },
+
+  // ── CATEGORY 4: CROSS-COUNTRY FLIGHT PLANNING ───────────────────
+
+  { cat: 4, q: "What should a thorough cross-country pre-flight planning checklist include?",
+    a: "1. Weather briefing (METARs, TAFs, AIRMETs, SIGMETs, PIREPs, winds aloft, prog charts)\n2. NOTAMs and TFRs for departure, route, and destination\n3. Route planning (airway/waypoints, terrain, altitude)\n4. Fuel planning (required fuel + reserves: 30 min day / 45 min night VFR)\n5. Weight & balance (compute, verify within limits/CG envelope)\n6. Performance calculations (T/O, cruise, landing — use density altitude)\n7. Alternate airports and diversion routes\n8. File a VFR flight plan (SAR protection)\n9. Brief passengers",
+    ref: "FAA-H-8083-25 Pilot's Handbook of Aeronautical Knowledge" },
+
+  { cat: 4, q: "What are the steps in a navigation log from True Course to Compass Heading?",
+    a: "TC → True Course (from chart/planning)\n± WCA → Wind Correction Angle (from winds aloft, correct left/right)\n= TH → True Heading\n± Var → Magnetic Variation (E is negative, W is positive — 'East is least, West is best')\n= MH → Magnetic Heading\n± Dev → Compass Deviation (from deviation card in aircraft)\n= CH → Compass Heading (what you set on compass)\n\nAlso plan: GS (groundspeed), ETE (estimated time en route), ETA, fuel burn per leg.",
+    ref: "FAA-H-8083-25" },
+
+  { cat: 4, q: "What are the VFR fuel reserve requirements?",
+    a: "Day VFR: Must have enough fuel to fly to first point of intended landing, plus at least 30 minutes at normal cruise speed.\n\nNight VFR: Must have enough fuel to fly to first point of intended landing, plus at least 45 minutes at normal cruise speed.\n\nThese are legal minimums. Personal minimums should be more conservative (e.g., 1 hour reserve).",
+    ref: "14 CFR § 91.151" },
+
+  { cat: 4, q: "What are the 'Four Cs' for lost procedures?",
+    a: "Climb: Gain altitude for better radio reception, GPS signal, and VOR range. Also gives a better view of landmarks.\n\nCommunicate: Contact ATC (approach, center, or 121.5 MHz — emergency frequency). Squawk 7700.\n\nConfess: Tell ATC you are lost. They are there to help. No shame in asking.\n\nComply: Follow ATC instructions precisely. They have radar and can vector you safely.",
+    ref: "FAA-H-8083-25, AIM 6-2-1" },
+
+  { cat: 4, q: "What are best practices for using an EFB (Electronic Flight Bag)?",
+    a: "• Always carry paper backups (current charts, airport diagrams, plates)\n• Verify chart/database currency before each flight\n• Pre-charge device; carry a backup power source (battery bank)\n• Do not let the EFB become a distraction — 'aviate, navigate, communicate' first\n• Cross-check EFB data with other sources (ATC, raw wx data)\n• Know how to use EFB for: wx briefing, W&B, performance, NOTAMs, moving map, approach plates\n• Cockpit resource management: brief EFB use before flight so you know where things are",
+    ref: "FAA AC 91-78, FAA-H-8083-25" },
+
+  { cat: 4, q: "What are the three types of weather briefings from FSS/1800wxbrief?",
+    a: "Standard Briefing: Full weather picture for your planned flight. Request when planning a new flight or first briefing of the day. Includes adverse conditions, synopsis, current conditions, en route forecast, destination forecast, winds aloft, NOTAMs, ATC delays.\n\nAbbreviated Briefing: Update to a previous standard briefing or when you need specific information only.\n\nOutlook Briefing: For flights 6 or more hours in the future. General overview of expected conditions. Not a legal substitute for a standard briefing close to departure time.",
+    ref: "AIM 7-1-5" },
+
+  { cat: 4, q: "How do you determine density altitude, and why does it matter?",
+    a: "Density altitude is pressure altitude corrected for non-standard temperature. It represents the aircraft's performance environment.\n\nApproximate formula: DA = PA + (120 × (OAT – ISA temp at that altitude)). ISA temp at sea level is 15°C, decreasing 2°C per 1,000 ft.\n\nWhy it matters: High DA reduces engine power, propeller efficiency, and lift. On a hot, high-altitude day, takeoff distance and climb rates can be dramatically worse than standard day values.",
+    ref: "FAA-H-8083-25, FAA-H-8083-3" },
+
+  { cat: 4, q: "What is weight and balance, and what are the consequences of exceeding limits?",
+    a: "Weight and balance ensures the aircraft is loaded within its certified weight limits and that the CG (center of gravity) is within the approved envelope.\n\nOverweight: Longer takeoff roll, reduced climb rate, reduced cruise performance, possible structural damage.\n\nForward CG: Nose-heavy, reduced elevator authority, higher stall speed.\nAft CG: Tail-heavy, reduced longitudinal stability, possible loss of control at or near stall.\n\nAlways compute W&B before every flight using the aircraft POH.",
+    ref: "FAA-H-8083-1 Aircraft Weight and Balance Handbook" },
+
+  { cat: 4, q: "What is VOR navigation and how does it work?",
+    a: "VOR (VHF Omnidirectional Range) is a ground-based navaid broadcasting 360 radials from the station.\n\nOBS (Omni-Bearing Selector): Set to the desired radial. The CDI shows whether you are on, left, or right of that radial.\n\nTo/From flag: Indicates if the selected radial will take you TO or FROM the station.\n\nAlways identify the VOR by its Morse code ident before use. An off-air VOR will show a flag or NAV failure indicator.\n\nVOR accuracy: ±1° bearing. Service volume varies by class (T, L, H).",
+    ref: "AIM 1-1-3, FAA-H-8083-25" },
+
+  { cat: 4, q: "What is GPS/WAAS and how does WAAS improve GPS for aviation?",
+    a: "GPS uses satellite signals to determine position (basic accuracy ~10–15 meters).\n\nWAAS (Wide Area Augmentation System) uses ground reference stations to correct GPS signal errors, improving accuracy to ~3 meters. WAAS-enabled GPS receivers are required for flying LPV (localizer performance with vertical guidance) approaches.\n\nFor VFR navigation: Any FAA-authorized GPS is suitable. Always cross-check with chart features.\n\nDatabase currency: GPS navigation databases expire every 28 days. Flying instrument approaches with an expired database is not authorized.",
+    ref: "AIM 1-1-17, FAA-H-8083-25" },
+
+  { cat: 4, q: "What are pilotage and dead reckoning, and why are they still important?",
+    a: "Pilotage: Navigating by visual reference to landmarks on a sectional chart. Match ground features to chart symbols (rivers, roads, airports, towers).\n\nDead reckoning (DR): Calculating position from known speed, heading, and elapsed time from a known starting point.\n\nWhy important: Both are fundamental backup skills when GPS or electrical systems fail. A good cross-country plan uses DR for timing between checkpoints and pilotage to confirm position visually.",
+    ref: "FAA-H-8083-25 Ch. 16" },
+
+  { cat: 4, q: "What is VFR flight following, and when should you use it?",
+    a: "VFR flight following is a radar advisory service provided to VFR pilots by ATC on a workload-permitting basis.\n\nBenefits: Traffic advisories, collision avoidance alerts, easier airspace transitions, faster SAR response.\n\nHow to request: Contact approach control or center; state aircraft type, position, altitude, and destination, and request 'VFR flight following.'\n\nNote: Flight following does NOT substitute for your own traffic scan ('see and avoid') or relieve you of VFR weather responsibilities.",
+    ref: "AIM 4-1-18" },
+
+  { cat: 4, q: "How do you conduct an in-flight diversion to an alternate airport?",
+    a: "Steps:\n1. Aviate — maintain aircraft control.\n2. Identify the nearest suitable airport (chart, moving map, or ATC).\n3. Estimate distance and time (60:1 rule: 1° heading ≈ distance/60 NM).\n4. Check fuel — can you make it with reserve?\n5. Check weather at alternate if able.\n6. Navigate direct using GPS, VOR, or pilotage.\n7. Advise ATC; squawk 7700 if declaring emergency.\n8. Update your flight plan with FSS if one was filed.\n\nKey: Plan diversions early — before you are forced into an emergency.",
+    ref: "FAA-H-8083-25 Ch. 17" },
+
+  { cat: 4, q: "What is ATIS/D-ATIS and how is it used?",
+    a: "ATIS (Automatic Terminal Information Service) is a continuous recording of essential terminal information at airports with control towers, broadcast on a separate VHF frequency.\n\nContent: Active runways, weather (ceiling, visibility, wind, altimeter), NOTAMs, and other pertinent information.\n\nEach update receives a new phonetic letter (Alpha, Bravo…). Pilots must receive the current ATIS before contacting approach or tower, and report the information code when checking in ('have information Bravo').\n\nD-ATIS: Digital ATIS — same content available in text form via EFB, phone, or data link.",
+    ref: "AIM 4-1-13" },
+
+  { cat: 4, q: "Why should you file a VFR flight plan, and what does it and does not do for you?",
+    a: "Filing a VFR flight plan activates Search and Rescue (SAR) if you are overdue. FSS notifies SAR after 30 minutes past your ETA if you haven't closed the plan.\n\nHow: File with FSS (1-800-WX-BRIEF), ForeFlight, or any EFB. Open the plan with FSS shortly before departure. CLOSE the plan immediately after landing — failure to close triggers an unnecessary SAR response.\n\nWhat it does NOT do: It does not provide ATC radar service, separation, or traffic advisories. ATC is not watching your progress.\n\nBest practice: File a flight plan for any cross-country, especially over remote or mountainous terrain.",
+    ref: "AIM 5-1-4, 5-1-13" },
+
+];
+
+// ══════════════════════════════════════════════════
+// APP STATE
+// ══════════════════════════════════════════════════
+const LS_KEY = 'frf_ratings';
+let ratings = {};       // cardId → 'got'|'needs'|'review'
+let deckIndices = [];   // ordered list of indices into ALL_CARDS
+let currentIdx = 0;     // position in deckIndices
+let isFlipped = false;
+let currentCat = 'all'; // 'all' | 0-4
+let reviewMode = 'all'; // 'all' | 'review' | 'needs' | 'unseen'
+let touchStartX = 0;
+
+function loadRatings() {
+  try { ratings = JSON.parse(localStorage.getItem(LS_KEY) || '{}'); } catch(e) { ratings = {}; }
+}
+function saveRatings() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(ratings)); } catch(e) {}
+}
+
+// ── Deck building ──────────────────────────────────
+function buildDeck() {
+  let base = ALL_CARDS.map((_,i) => i);
+  if (currentCat !== 'all') {
+    base = base.filter(i => ALL_CARDS[i].cat === Number(currentCat));
+  }
+  if (reviewMode === 'review') base = base.filter(i => ratings[i] === 'review');
+  else if (reviewMode === 'needs') base = base.filter(i => ratings[i] === 'needs');
+  else if (reviewMode === 'unseen') base = base.filter(i => !ratings[i]);
+  deckIndices = base;
+  currentIdx = 0;
+  isFlipped = false;
+}
+
+function shuffleDeck() {
+  for (let i = deckIndices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deckIndices[i], deckIndices[j]] = [deckIndices[j], deckIndices[i]];
+  }
+  currentIdx = 0;
+}
+
+// ── Rendering ──────────────────────────────────────
+function render() {
+  updateScores();
+  if (deckIndices.length === 0) {
+    showEmpty();
+    return;
+  }
+  const cardId = deckIndices[currentIdx];
+  const card = ALL_CARDS[cardId];
+  const cat = CATEGORIES[card.cat];
+
+  // Unflip
+  isFlipped = false;
+  document.getElementById('cardInner').classList.remove('flipped');
+
+  // Front
+  document.getElementById('cardCatTag').textContent = cat.name;
+  document.getElementById('cardCatTag').style.setProperty('--cat-color', cat.color);
+  document.getElementById('cardCatTag').style.color = cat.color;
+  document.getElementById('cardQuestion').textContent = card.q;
+
+  // Back
+  document.getElementById('cardCatTagBack').textContent = cat.name;
+  document.getElementById('cardCatTagBack').style.setProperty('--cat-color', cat.color);
+  document.getElementById('cardCatTagBack').style.color = cat.color;
+  document.getElementById('cardAnswer').innerHTML = formatAnswer(card.a);
+  document.getElementById('cardRef').textContent = card.ref || '';
+
+  // Progress
+  const pct = deckIndices.length > 1 ? (currentIdx / (deckIndices.length - 1)) * 100 : 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `Card ${currentIdx + 1} / ${deckIndices.length}`;
+  const catName = currentCat === 'all' ? 'All Cards' : CATEGORIES[Number(currentCat)].name;
+  document.getElementById('categoryLabel').textContent = catName + (reviewMode !== 'all' ? ` — ${reviewMode}` : '');
+
+  // Confidence buttons
+  setConfidenceButtons(false);
+}
+
+function formatAnswer(text) {
+  // Convert newlines to <br> and bold text within **
+  return text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\n/g,'<br>')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+}
+
+function showEmpty() {
+  document.getElementById('cardQuestion').textContent = 'No cards match this filter.';
+  document.getElementById('cardAnswer').innerHTML = 'Try selecting a different category or review mode.';
+  document.getElementById('cardRef').textContent = '';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('progressLabel').textContent = 'Card 0 / 0';
+  setConfidenceButtons(true);
+}
+
+function setConfidenceButtons(disabled) {
+  document.getElementById('gotItBtn').disabled = disabled || !isFlipped;
+  document.getElementById('needsWorkBtn').disabled = disabled || !isFlipped;
+  document.getElementById('reviewAgainBtn').disabled = disabled || !isFlipped;
+}
+
+function updateScores() {
+  let got = 0, needs = 0, rev = 0;
+  // Count from the CURRENT deck
+  const deckSet = new Set(deckIndices);
+  // Actually count all ratings for the filtered cards
+  const relevantIds = currentCat === 'all'
+    ? ALL_CARDS.map((_,i)=>i)
+    : ALL_CARDS.map((_,i)=>i).filter(i=>ALL_CARDS[i].cat===Number(currentCat));
+
+  relevantIds.forEach(i => {
+    if (ratings[i] === 'got') got++;
+    else if (ratings[i] === 'needs') needs++;
+    else if (ratings[i] === 'review') rev++;
+  });
+  const unseen = relevantIds.length - got - needs - rev;
+
+  document.getElementById('dash-got').textContent = got;
+  document.getElementById('dash-needs').textContent = needs;
+  document.getElementById('dash-rev').textContent = rev;
+  document.getElementById('dash-unseen').textContent = Math.max(0, unseen);
+  document.getElementById('hdr-got').textContent = got;
+  document.getElementById('hdr-needs').textContent = needs;
+  document.getElementById('hdr-review').textContent = rev;
+}
+
+function updateCategoryCounts() {
+  const total = ALL_CARDS.length;
+  document.getElementById('cnt-all').textContent = total;
+  for (let c = 0; c < 5; c++) {
+    document.getElementById(`cnt-${c}`).textContent = ALL_CARDS.filter(x=>x.cat===c).length;
+  }
+}
+
+// ── Navigation ─────────────────────────────────────
+function flipCard() {
+  isFlipped = !isFlipped;
+  document.getElementById('cardInner').classList.toggle('flipped', isFlipped);
+  setConfidenceButtons(false);
+}
+
+function goNext() {
+  if (deckIndices.length === 0) return;
+  currentIdx = (currentIdx + 1) % deckIndices.length;
+  render();
+}
+function goPrev() {
+  if (deckIndices.length === 0) return;
+  currentIdx = (currentIdx - 1 + deckIndices.length) % deckIndices.length;
+  render();
+}
+
+function rateCard(rating) {
+  if (!isFlipped || deckIndices.length === 0) return;
+  const cardId = deckIndices[currentIdx];
+  ratings[cardId] = rating;
+  saveRatings();
+  // Auto-advance
+  setTimeout(() => goNext(), 350);
+}
+
+// ── Category / mode selection ──────────────────────
+function selectCategory(cat) {
+  currentCat = cat;
+  buildDeck();
+  render();
+  updateCategoryButtons();
+  closeSidebar();
+}
+
+function selectMode(mode) {
+  reviewMode = mode;
+  buildDeck();
+  render();
+  updateModeButtons();
+  closeSidebar();
+}
+
+function updateCategoryButtons() {
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    const active = btn.dataset.cat === String(currentCat);
+    btn.classList.toggle('active', active);
+    const cat = btn.dataset.cat;
+    if (cat === 'all') btn.style.borderLeftColor = active ? 'var(--cat5)' : 'transparent';
+    else {
+      const c = CATEGORIES[Number(cat)];
+      btn.style.borderLeftColor = active ? c.color : 'transparent';
+    }
+  });
+}
+
+function updateModeButtons() {
+  const modes = { all: 'modeAll', review: 'modeReview', needs: 'modeNeeds', unseen: 'modeUnseen' };
+  Object.entries(modes).forEach(([k,id]) => {
+    document.getElementById(id).classList.toggle('active', reviewMode === k);
+  });
+}
+
+// ── Sidebar mobile ─────────────────────────────────
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+// ── Event wiring ───────────────────────────────────
+document.getElementById('cardScene').addEventListener('click', flipCard);
+document.getElementById('prevBtn').addEventListener('click', goPrev);
+document.getElementById('nextBtn').addEventListener('click', goNext);
+document.getElementById('gotItBtn').addEventListener('click', () => rateCard('got'));
+document.getElementById('needsWorkBtn').addEventListener('click', () => rateCard('needs'));
+document.getElementById('reviewAgainBtn').addEventListener('click', () => rateCard('review'));
+
+document.getElementById('shuffleBtn').addEventListener('click', () => {
+  shuffleDeck();
+  render();
+});
+document.getElementById('resetDeckBtn').addEventListener('click', () => {
+  buildDeck();
+  render();
+});
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if (confirm('Reset all confidence ratings? This cannot be undone.')) {
+    ratings = {};
+    saveRatings();
+    buildDeck();
+    render();
+  }
+});
+
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => selectCategory(btn.dataset.cat));
+});
+document.getElementById('modeAll').addEventListener('click', () => selectMode('all'));
+document.getElementById('modeReview').addEventListener('click', () => selectMode('review'));
+document.getElementById('modeNeeds').addEventListener('click', () => selectMode('needs'));
+document.getElementById('modeUnseen').addEventListener('click', () => selectMode('unseen'));
+
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+});
+document.getElementById('overlay').addEventListener('click', closeSidebar);
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'ArrowRight') goNext();
+  else if (e.key === 'ArrowLeft') goPrev();
+  else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+  else if (e.key === 'r' || e.key === 'R') { buildDeck(); render(); }
+  else if (e.key === '1') rateCard('got');
+  else if (e.key === '2') rateCard('needs');
+  else if (e.key === '3') rateCard('review');
+});
+
+// Touch / swipe
+document.getElementById('cardScene').addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].clientX;
+}, { passive: true });
+document.getElementById('cardScene').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50) dx < 0 ? goNext() : goPrev();
+  else flipCard();
+}, { passive: true });
+
+// ── Init ───────────────────────────────────────────
+loadRatings();
+updateCategoryCounts();
+buildDeck();
+render();
+updateCategoryButtons();
+updateModeButtons();
+</script>
+</body>
+</html>
