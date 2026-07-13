@@ -1,0 +1,474 @@
+{
+  "title": "FOI Study Cards",
+  "cards": [
+    {
+      "id": "hb-01",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What five human needs are commonly described in Maslow's hierarchy for FOI study?",
+      "answer": "Physiological, safety and security, belonging, esteem, and self-actualization.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "hb-02",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What is denial as a defense mechanism?",
+      "answer": "A refusal to accept external reality because it is too threatening.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "hb-03",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What is compensation as a defense mechanism?",
+      "answer": "Counterbalancing a perceived weakness by emphasizing a more desirable trait or skill.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "hb-04",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What is projection as a defense mechanism?",
+      "answer": "Attributing one's own faults or unacceptable feelings to someone else.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "hb-05",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What is rationalization as a defense mechanism?",
+      "answer": "Creating excuses to justify behavior or poor performance instead of facing the real reason.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "hb-06",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What is reaction formation as a defense mechanism?",
+      "answer": "Substituting an opposite behavior or feeling for one the person cannot accept.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "hb-07",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What is repression as a defense mechanism?",
+      "answer": "Unconsciously keeping uncomfortable thoughts, feelings, or memories out of awareness.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "hb-08",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "Name four common barriers to effective communication discussed in the AIH.",
+      "answer": "Lack of common experience, confusion between the symbol and the symbolized object, overuse of abstractions, and interference.",
+      "reference": "FAA-H-8083-9, Effective Communication chapter"
+    },
+    {
+      "id": "hb-09",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What are the basic elements of the communication process?",
+      "answer": "A source sends symbols to a receiver, and feedback confirms whether the message was understood.",
+      "reference": "FAA-H-8083-9, Effective Communication chapter"
+    },
+    {
+      "id": "hb-10",
+      "category": "Human Behavior and Effective Communication",
+      "prompt": "What traits often describe adult learners in FOI instruction?",
+      "answer": "They are usually self-directed, practical, goal-oriented, and want training to be relevant.",
+      "reference": "FAA-H-8083-9, Human Behavior chapter"
+    },
+    {
+      "id": "lp-01",
+      "category": "The Learning Process",
+      "prompt": "What are the six laws of learning remembered by REEPIR?",
+      "answer": "Readiness, Exercise, Effect, Primacy, Intensity, and Recency.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-02",
+      "category": "The Learning Process",
+      "prompt": "What does the law of readiness mean?",
+      "answer": "Students learn best when they are mentally and physically prepared to learn.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-03",
+      "category": "The Learning Process",
+      "prompt": "What does the law of exercise mean?",
+      "answer": "Practice and repetition strengthen learning, while lack of use weakens it.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-04",
+      "category": "The Learning Process",
+      "prompt": "What does the law of effect mean?",
+      "answer": "Learning is strengthened when it leads to a satisfying or pleasant feeling.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-05",
+      "category": "The Learning Process",
+      "prompt": "What does the law of primacy mean?",
+      "answer": "The first experience or impression is often learned best and is hard to change later.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-06",
+      "category": "The Learning Process",
+      "prompt": "What does the law of intensity mean?",
+      "answer": "Vivid, dramatic, or exciting learning experiences are remembered better than routine ones.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-07",
+      "category": "The Learning Process",
+      "prompt": "What does the law of recency mean?",
+      "answer": "The things most recently learned are usually remembered best.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-08",
+      "category": "The Learning Process",
+      "prompt": "What are the four levels of learning?",
+      "answer": "Rote, understanding, application, and correlation.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-09",
+      "category": "The Learning Process",
+      "prompt": "What are the three domains of learning?",
+      "answer": "Cognitive, affective, and psychomotor.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-10",
+      "category": "The Learning Process",
+      "prompt": "What sequence describes how information typically moves through memory?",
+      "answer": "Sensory input is processed into short-term or working memory and then encoded into long-term memory.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-11",
+      "category": "The Learning Process",
+      "prompt": "What are common causes of forgetting?",
+      "answer": "Fading, disuse, interference, and repression are common reasons people forget.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "lp-12",
+      "category": "The Learning Process",
+      "prompt": "What is transfer of learning?",
+      "answer": "Using knowledge or skills learned in one situation to help or hinder learning in another situation.",
+      "reference": "FAA-H-8083-9, The Learning Process chapter"
+    },
+    {
+      "id": "et-01",
+      "category": "Effective Teaching",
+      "prompt": "What is the purpose of a lesson objective?",
+      "answer": "It tells the learner what performance is expected, under what conditions, and to what standard.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-02",
+      "category": "Effective Teaching",
+      "prompt": "What should a completion standard tell the student?",
+      "answer": "Exactly how well the task must be performed for the lesson to be considered successful.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-03",
+      "category": "Effective Teaching",
+      "prompt": "What teaching methods are commonly highlighted in the AIH?",
+      "answer": "Lecture, guided discussion, demonstration-performance, computer-based training, and scenario-based training.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-04",
+      "category": "Effective Teaching",
+      "prompt": "When is the lecture method most useful?",
+      "answer": "When the instructor needs to organize and present a large amount of information efficiently.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-05",
+      "category": "Effective Teaching",
+      "prompt": "What is the instructor's role in a guided discussion?",
+      "answer": "To keep the discussion focused with purposeful questions while encouraging student participation.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-06",
+      "category": "Effective Teaching",
+      "prompt": "What is the main goal of scenario-based training?",
+      "answer": "To teach learners to apply knowledge and judgment in realistic, decision-based situations.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-07",
+      "category": "Effective Teaching",
+      "prompt": "What should a lesson plan include besides objectives and standards?",
+      "answer": "Content, schedule, equipment, references, and the instructor and student actions needed to complete the lesson.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-08",
+      "category": "Effective Teaching",
+      "prompt": "Why is organized content important in instruction?",
+      "answer": "It helps the student build understanding in a logical sequence instead of memorizing disconnected facts.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "et-09",
+      "category": "Effective Teaching",
+      "prompt": "What makes an oral question effective during teaching?",
+      "answer": "It is clear, focused, appropriate to the learner's level, and encourages thought instead of guessing.",
+      "reference": "FAA-H-8083-9, Effective Teaching chapter"
+    },
+    {
+      "id": "ac-01",
+      "category": "Assessment and Critique",
+      "prompt": "What are the main traits of an effective assessment?",
+      "answer": "It should be objective, flexible, acceptable, comprehensive, constructive, organized, thoughtful, and specific.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-02",
+      "category": "Assessment and Critique",
+      "prompt": "What does objective assessment mean?",
+      "answer": "The instructor measures performance against a standard rather than against personal likes or dislikes.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-03",
+      "category": "Assessment and Critique",
+      "prompt": "Why should assessment be flexible?",
+      "answer": "Because the instructor may need to adapt the method or wording to fit the learner and the situation.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-04",
+      "category": "Assessment and Critique",
+      "prompt": "What does comprehensive assessment require?",
+      "answer": "It looks at the whole performance, including strengths, weaknesses, procedures, and decision-making.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-05",
+      "category": "Assessment and Critique",
+      "prompt": "What makes an assessment constructive?",
+      "answer": "It points out both strengths and weaknesses and gives practical ways to improve.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-06",
+      "category": "Assessment and Critique",
+      "prompt": "What critique methods are commonly used in flight instruction?",
+      "answer": "Instructor-led, student-led, collaborative, and small group critiques.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-07",
+      "category": "Assessment and Critique",
+      "prompt": "What is the goal of student self-assessment during a critique?",
+      "answer": "To help the learner identify what happened, why it happened, and how to improve next time.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-08",
+      "category": "Assessment and Critique",
+      "prompt": "Why is oral questioning useful in assessment?",
+      "answer": "It lets the instructor check understanding, reveal gaps, and guide the student toward deeper thinking.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ac-09",
+      "category": "Assessment and Critique",
+      "prompt": "What types of oral questions should instructors avoid?",
+      "answer": "Questions that are vague, trick-based, purely yes-or-no, or unrelated to the lesson objective.",
+      "reference": "FAA-H-8083-9, Assessment chapter"
+    },
+    {
+      "id": "ir-01",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "What is the flight instructor's primary job in FOI terms?",
+      "answer": "To help students learn safely, efficiently, and to an acceptable standard.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-02",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "What must an instructor do before giving an endorsement for solo or practical test readiness?",
+      "answer": "Provide adequate training and determine that the student meets the required knowledge, skill, and judgment standards.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-03",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "Why should instructors minimize student frustration?",
+      "answer": "Because excessive frustration can block learning, damage confidence, and reduce motivation.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-04",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "How should an instructor handle a personal mistake in front of a student?",
+      "answer": "Admit the error promptly, correct it, and use it as a teaching opportunity.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-05",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "What should an instructor evaluate during debriefing?",
+      "answer": "Performance against standards and decisions made, not the student's personal worth.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-06",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "Name several traits of an instructor who shows professionalism.",
+      "answer": "Sincerity, acceptance of the student, sound judgment, proper appearance, and consistent safety habits.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-07",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "Why are accurate training records and endorsements important?",
+      "answer": "They document progress, support legal compliance, and show that required instruction was completed.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-08",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "What responsibility does a flight instructor have regarding risk management?",
+      "answer": "To teach students to recognize hazards, assess risk, and make sound aeronautical decisions.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "ir-09",
+      "category": "Instructor Responsibilities and Professionalism",
+      "prompt": "Why is the instructor-learner relationship important?",
+      "answer": "A respectful, professional relationship supports trust, communication, and effective learning.",
+      "reference": "FAA-H-8083-9, Instructor Responsibilities chapter"
+    },
+    {
+      "id": "tf-01",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "What are common obstacles to learning in flight training?",
+      "answer": "Fear, anxiety, unrealistic expectations, physical discomfort, fatigue, and lack of interest.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-02",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "What is a common sign that anxiety is interfering with learning?",
+      "answer": "A student may freeze, rush, make uncharacteristic errors, or stop processing instructions clearly.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-03",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "What is the standard positive exchange of flight controls?",
+      "answer": "'You have the flight controls.' 'I have the flight controls.' 'You have the flight controls.'",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-04",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "When should positive exchange of flight controls be briefed?",
+      "answer": "Before flight and any time there is doubt about who is controlling the aircraft.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-05",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "What are the four basic steps of the demonstration-performance method?",
+      "answer": "Explanation, demonstration, student performance, and instructor evaluation.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-06",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "What should the instructor do during the student-performance step of demonstration-performance?",
+      "answer": "Coach as needed, monitor safety, and let the learner practice until performance becomes consistent.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-07",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "What is integrated flight instruction?",
+      "answer": "Teaching flight maneuvers while combining outside visual references, instrument indications, and related knowledge.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-08",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "Why are clear completion standards important during flight instruction?",
+      "answer": "They tell the learner what successful performance looks like and make debriefing more objective.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "tf-09",
+      "category": "Techniques of Flight Instruction",
+      "prompt": "How should an instructor correct a repeated student error?",
+      "answer": "Diagnose the cause, reteach the needed concept or skill, and provide focused practice with feedback.",
+      "reference": "FAA-H-8083-9, Techniques of Flight Instruction chapter"
+    },
+    {
+      "id": "rm-01",
+      "category": "Risk Management",
+      "prompt": "What does IMSAFE stand for?",
+      "answer": "Illness, Medication, Stress, Alcohol, Fatigue, and Emotion or Eating.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-02",
+      "category": "Risk Management",
+      "prompt": "What does PAVE stand for?",
+      "answer": "Pilot, Aircraft, enVironment, and External pressures.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-03",
+      "category": "Risk Management",
+      "prompt": "What does DECIDE stand for?",
+      "answer": "Detect, Estimate, Choose, Identify, Do, and Evaluate.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-04",
+      "category": "Risk Management",
+      "prompt": "What are the five Ps of the 5P checklist?",
+      "answer": "Plan, Plane, Pilot, Passengers, and Programming.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-05",
+      "category": "Risk Management",
+      "prompt": "What is the purpose of the PAVE checklist?",
+      "answer": "To identify hazards before and during flight by reviewing the pilot, aircraft, environment, and external pressures.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-06",
+      "category": "Risk Management",
+      "prompt": "What is the purpose of the DECIDE model?",
+      "answer": "To give pilots a structured process for reacting to changing circumstances and making safer decisions.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-07",
+      "category": "Risk Management",
+      "prompt": "What does the 3P model stand for?",
+      "answer": "Perceive, Process, and Perform.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-08",
+      "category": "Risk Management",
+      "prompt": "When are the 5P checks commonly reviewed during a flight?",
+      "answer": "Before the flight, before takeoff, hourly or at key checkpoints, before descent, and after landing during review.",
+      "reference": "FAA risk management checklists used in instructor training"
+    },
+    {
+      "id": "rm-09",
+      "category": "Risk Management",
+      "prompt": "What do external pressures in PAVE often include?",
+      "answer": "Schedule pressure, passenger expectations, desire to complete the flight, and other self-imposed pressures.",
+      "reference": "FAA risk management checklists used in instructor training"
+    }
+  ]
+}

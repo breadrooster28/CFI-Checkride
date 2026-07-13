@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFI Checkride FOI Study App</title>
+  <link rel="stylesheet" href="app.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">CFI Checkride Study</p>
+      <h1>FOI flashcards and quiz</h1>
+      <p class="hero__text">A mobile-friendly, static study app for the FAA Fundamentals of Instructing, built to work directly on GitHub Pages.</p>
+      <p class="hero__subtext">Your progress stays on this device using localStorage.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel panel--study">
+      <div class="panel__header">
+        <h2>Study app</h2>
+        <div class="mode-switch" role="tablist" aria-label="Study mode">
+          <button id="flashcardsTab" class="mode-switch__button is-active" type="button" role="tab" aria-selected="true">Flashcards</button>
+          <button id="quizTab" class="mode-switch__button" type="button" role="tab" aria-selected="false">Quiz</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="field">
+          <span>Category</span>
+          <select id="categorySelect"></select>
+        </label>
+        <button id="shuffleButton" class="button button--secondary" type="button">Shuffle cards</button>
+        <button id="resetProgressButton" class="button button--ghost" type="button">Reset progress</button>
+      </div>
+
+      <div class="progress-grid" aria-live="polite">
+        <article class="stat-card">
+          <span class="stat-card__label">Cards in view</span>
+          <strong id="cardsInView">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-card__label">Got it</span>
+          <strong id="gotItCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-card__label">Review again</span>
+          <strong id="reviewAgainCount">0</strong>
+        </article>
+      </div>
+
+      <section id="flashcardsPanel" class="study-panel" aria-labelledby="flashcardsTab">
+        <div class="deck-toolbar">
+          <button id="prevCardButton" class="button button--secondary" type="button">Previous</button>
+          <p id="cardPosition" class="deck-toolbar__position">Card 0 of 0</p>
+          <button id="nextCardButton" class="button button--secondary" type="button">Next</button>
+        </div>
+
+        <button id="flashcard" class="flashcard" type="button" aria-live="polite">
+          <span class="flashcard__badge" id="flashcardCategory">Category</span>
+          <span class="flashcard__hint" id="flashcardHint">Tap to reveal the answer</span>
+          <span class="flashcard__face flashcard__face--front">
+            <span class="flashcard__label">Prompt</span>
+            <span id="flashcardPrompt" class="flashcard__text"></span>
+          </span>
+          <span class="flashcard__face flashcard__face--back">
+            <span class="flashcard__label">Answer</span>
+            <span id="flashcardAnswer" class="flashcard__text"></span>
+            <span id="flashcardReference" class="flashcard__reference"></span>
+          </span>
+        </button>
+
+        <div class="rating-row">
+          <button id="gotItButton" class="button button--success" type="button">Got it</button>
+          <button id="reviewAgainButton" class="button button--warning" type="button">Review again</button>
+        </div>
+      </section>
+
+      <section id="quizPanel" class="study-panel is-hidden" aria-labelledby="quizTab">
+        <div class="quiz-toolbar">
+          <p class="quiz-toolbar__note">Quiz questions use the same FOI card content as the flashcards.</p>
+          <button id="startQuizButton" class="button button--secondary" type="button">Start quiz</button>
+        </div>
+
+        <article class="quiz-card">
+          <p id="quizStatus" class="quiz-card__status">Select a category and start the quiz.</p>
+          <h3 id="quizPrompt" class="quiz-card__prompt">Ready to test yourself?</h3>
+          <div id="quizChoices" class="quiz-choices"></div>
+          <p id="quizFeedback" class="quiz-card__feedback" aria-live="polite"></p>
+          <button id="nextQuestionButton" class="button button--secondary is-hidden" type="button">Next question</button>
+        </article>
+
+        <article id="quizSummary" class="summary-card is-hidden" aria-live="polite"></article>
+      </section>
+    </section>
+
+    <section class="panel panel--resources">
+      <h2>Existing study content</h2>
+      <p>This repo already includes study notes and a separate flight review flashcard page. They are preserved here alongside the new FOI app.</p>
+
+      <div class="resource-group">
+        <h3>Area I task notes</h3>
+        <ul class="resource-list">
+          <li><a href="Task-A-Effects-of-Human-Behavior-and-Communication.md">Task A — Effects of Human Behavior and Communication</a></li>
+          <li><a href="Task-B-Learning-Process.md">Task B — Learning Process</a></li>
+          <li><a href="Task-C-Course-Development-Lesson-Plans-Classroom-Techniques.md">Task C — Course Development, Lesson Plans, Classroom Techniques</a></li>
+          <li><a href="Task-D-Student-Evaluation-Assessment-Testing.md">Task D — Student Evaluation, Assessment, and Testing</a></li>
+          <li><a href="Task-E-Effective-Teaching-in-Professional-Environment.md">Task E — Effective Teaching in a Professional Environment</a></li>
+          <li><a href="Task-F-Elements-of-Effective-Teaching-Risk-Management.md">Task F — Elements of Effective Teaching and Risk Management</a></li>
+        </ul>
+      </div>
+
+      <div class="resource-group">
+        <h3>Other resources in this repo</h3>
+        <ul class="resource-list">
+          <li><a href="flight-review-flashcards.html">Flight review flashcards</a></li>
+          <li><a href="README.md">Repository README</a></li>
+          <li><a href="ACS-Task-Notes-Template.md">ACS task notes template</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

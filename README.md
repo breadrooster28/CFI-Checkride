@@ -1,49 +1,89 @@
-# CFI ACS Notes (ASEL) — One File Per Task
+# CFI Checkride Study Notes + FOI Study App
 
-Purpose
-- Provide examiner-ready, instructor-focused notes for every ASEL Task in the CFI Airplane ACS.
-- Each Task file aligns with ACS Objective, Knowledge, Risk Management, and Skills — using only the references listed for that Task.
+This repository now includes both the original Area I study-note files and a static, mobile-friendly FAA Fundamentals of Instructing (FOI) flashcard and quiz app for GitHub Pages.
 
-How to use
-1) Open notes/Area-*/Task-*.md for the Task you’ll teach or be evaluated on.
-2) Use the built-in structure: What to teach, how to manage risk, how to demonstrate/assess skills, SBT scenario, talk tracks, quick references.
-3) Debrief with the prompts included; update personal minimums and lesson plans based on outcomes.
+## What is in the repo
 
-Conventions
-- References: strictly what the ACS lists for each Task (e.g., FAA-H-8083-2/9/25, AIM, ACs, CFRs).
-- Method: scenario-based training (SBT), guided questioning, instructor “think-aloud,” authentic assessment.
+### FOI study app
+- `index.html` — main entry point for the FOI app
+- `app.css` — mobile-first styling
+- `app.js` — flashcard, quiz, shuffle, filtering, and localStorage logic
+- `data/foi.json` — FOI study content used by both flashcards and quiz mode
 
-Roadmap
-- Area I is included. After you confirm, I’ll add Areas II–XIV in batches.
+### Existing study content preserved in the repo
+- `Task-A-Effects-of-Human-Behavior-and-Communication.md`
+- `Task-B-Learning-Process.md`
+- `Task-C-Course-Development-Lesson-Plans-Classroom-Techniques.md`
+- `Task-D-Student-Evaluation-Assessment-Testing.md`
+- `Task-E-Effective-Teaching-in-Professional-Environment.md`
+- `Task-F-Elements-of-Effective-Teaching-Risk-Management.md`
+- `flight-review-flashcards.html`
+- `ACS-Task-Notes-Template.md`
 
----
+## FOI app features
+- Flashcard mode with tap/click flip
+- **Got it** / **Review again** progress tracking saved in `localStorage`
+- Category filter for the seven FOI topic areas
+- Shuffle option for the current deck
+- Quiz mode using the same JSON content as the flashcards
+- Immediate feedback plus a score summary at the end of the quiz
+- Mobile-friendly layout with large tap targets
 
-## ✈️ Flight Review Flashcards
+## How to use the app
 
-**File:** `flight-review-flashcards.html`
+### On GitHub Pages
+Open `index.html` from the published site and study on any phone, tablet, or desktop browser.
 
-A self-contained, single-file interactive flashcard app to help prepare for a biennial flight review (BFR). No internet connection, frameworks, or build tools required — just open the file in any modern browser.
+### Locally without a build step
+Because the app loads `data/foi.json`, use a simple static file server instead of opening `index.html` directly as a `file://` URL.
 
-### How to use
-1. Open `flight-review-flashcards.html` directly in your browser (works as a local `file://` or via GitHub Pages).
-2. Use the sidebar to filter by category or review mode.
-3. Click a card (or press **Space**) to flip and reveal the answer.
-4. Rate your confidence: **Got It ✓**, **Needs Work ~**, or **Review Again ✗**.
-5. Ratings are saved automatically in `localStorage` and persist between sessions.
+Example:
 
-### Keyboard shortcuts
-| Key | Action |
-|-----|--------|
-| `Space` | Flip card |
-| `←` / `→` | Previous / Next card |
-| `R` | Reset deck order |
-| `1` | Rate "Got It" |
-| `2` | Rate "Needs Work" |
-| `3` | Rate "Review Again" |
+```bash
+cd /path/to/CFI-Checkride
+python3 -m http.server 8000
+```
 
-### Content coverage (5 categories, 79 cards)
-- **Pilot** — § 61.57, § 91.3, § 91.123, § 91.107, § 91.15, § 91.17, § 91.211, AIM 8-1 (IMSAFE, hypoxia, CO, scuba)
-- **Aircraft** — §§ 91.9, 91.203 (ARROW), 91.205 (TOMATO FLAMES / FLAPS), 91.207, 91.209, 91.213, 91.215, 91.403–91.413
-- **Environment** — Airport markings, ATC light signals, traffic patterns, altimeter settings, min safe altitudes, hemispheric rule, speed limits, right-of-way, airspace classes, TFRs, weather products, wake turbulence
-- **External Pressures** — Personal minimums, 3-P model, PAVE checklist, hazardous attitudes, ACS overview
-- **Cross-Country** — Pre-flight checklist, nav log (TC→CH), fuel reserves, lost procedures (4 Cs), EFB best practices, weather briefing types
+Then open `http://localhost:8000`.
+
+## Enable GitHub Pages for this repo
+1. Push the repository contents to GitHub.
+2. Open **Settings** in the `breadrooster28/CFI-Checkride` repository.
+3. Go to **Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select the branch you want to publish (usually `main`) and the **`/ (root)`** folder.
+6. Save the settings and wait for GitHub Pages to publish the site.
+7. Open the published site URL and use `index.html` as the landing page.
+
+## Add or edit FOI cards
+All flashcards and quiz questions live in `data/foi.json`.
+
+Each card uses this structure:
+
+```json
+{
+  "id": "hb-01",
+  "category": "Human Behavior and Effective Communication",
+  "prompt": "What five human needs are commonly described in Maslow's hierarchy for FOI study?",
+  "answer": "Physiological, safety and security, belonging, esteem, and self-actualization.",
+  "reference": "FAA-H-8083-9, Human Behavior chapter"
+}
+```
+
+### Supported categories in the current app
+- Human Behavior and Effective Communication
+- The Learning Process
+- Effective Teaching
+- Assessment and Critique
+- Instructor Responsibilities and Professionalism
+- Techniques of Flight Instruction
+- Risk Management
+
+### Tips for adding new cards
+- Keep every `id` unique.
+- Reuse the existing category names if you want cards to appear under the current filter options.
+- Write concise prompts and accurate FAA-based answers.
+- The quiz mode automatically builds multiple-choice options from the same JSON file, so no extra quiz file is needed.
+
+## Existing notes usage
+The markdown task files remain in the repository and are linked from `index.html` so the new app lives alongside the original study content instead of replacing it.
