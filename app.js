@@ -303,7 +303,6 @@ function nextQuizQuestion() {
     renderQuizSummary();
     return;
   }
-  elements.startQuizButton.textContent = 'Restart quiz';
   renderQuizQuestion();
 }
 
@@ -332,7 +331,6 @@ function resetQuizState() {
   elements.nextQuestionButton.classList.add('is-hidden');
   elements.startQuizButton.textContent = 'Start quiz';
 }
-
 
 function resetProgress() {
   if (!window.confirm('Reset all local flashcard progress for this device?')) {
