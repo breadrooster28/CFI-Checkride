@@ -1,19 +1,31 @@
 const STORAGE_KEY = 'foi-study-progress-v1';
+const CONTENT_SETS = {
+  foi: {
+    label: 'FOI deck',
+    path: 'data/foi.json'
+  },
+  'oral-prep': {
+    label: 'Oral Prep deck',
+    path: 'data/oral-prep.json'
+  }
+};
 
 const state = {
   cards: [],
   deck: [],
   currentIndex: 0,
   isFlipped: false,
-  progress: loadProgress(),
+  progress: {},
   quizCards: [],
   quizIndex: 0,
   quizScore: 0,
   quizAnswered: false,
-  activeMode: 'flashcards'
+  activeMode: 'flashcards',
+  activeContentSet: 'foi'
 };
 
 const elements = {
+  contentSetSelect: document.getElementById('contentSetSelect'),
   categorySelect: document.getElementById('categorySelect'),
   shuffleButton: document.getElementById('shuffleButton'),
   resetProgressButton: document.getElementById('resetProgressButton'),
@@ -40,6 +52,7 @@ const elements = {
   quizPrompt: document.getElementById('quizPrompt'),
   quizChoices: document.getElementById('quizChoices'),
   quizFeedback: document.getElementById('quizFeedback'),
+  quizSourceNote: document.getElementById('quizSourceNote'),
   nextQuestionButton: document.getElementById('nextQuestionButton'),
   quizSummary: document.getElementById('quizSummary')
 };
@@ -48,21 +61,19 @@ init();
 
 async function init() {
   try {
-    const response = await fetch('data/foi.json');
-    if (!response.ok) { throw new Error(`HTTP ${response.status}`); }
-    const payload = await response.json();
-    state.cards = payload.cards || [];
-    populateCategories();
-    rebuildDeck();
     bindEvents();
+    await loadContentSet(elements.contentSetSelect.value || 'foi');
   } catch (error) {
-    elements.flashcardPrompt.textContent = 'Unable to load FOI study content.';
-    elements.flashcardAnswer.textContent = 'Check that data/foi.json is available.';
+    elements.flashcardPrompt.textContent = 'Unable to load study content.';
+    elements.flashcardAnswer.textContent = 'Check that the selected JSON file is available.';
     elements.quizFeedback.textContent = error.message;
   }
 }
 
 function bindEvents() {
+  elements.contentSetSelect.addEventListener('change', async () => {
+    await loadContentSet(elements.contentSetSelect.value);
+  });
   elements.categorySelect.addEventListener('change', () => {
     rebuildDeck();
     resetQuizState();
@@ -78,6 +89,20 @@ function bindEvents() {
   elements.startQuizButton.addEventListener('click', startQuiz);
   elements.nextQuestionButton.addEventListener('click', nextQuizQuestion);
   elements.resetProgressButton.addEventListener('click', resetProgress);
+}
+
+async function loadContentSet(contentSetKey) {
+  const config = CONTENT_SETS[contentSetKey] || CONTENT_SETS.foi;
+  const response = await fetch(config.path);
+  if (!response.ok) { throw new Error(`HTTP ${response.status}`); }
+  const payload = await response.json();
+  state.activeContentSet = contentSetKey in CONTENT_SETS ? contentSetKey : 'foi';
+  state.cards = payload.cards || [];
+  state.progress = loadProgress(state.activeContentSet);
+  elements.quizSourceNote.textContent = `Quiz questions use the ${config.label} content.`;
+  populateCategories();
+  rebuildDeck();
+  resetQuizState();
 }
 
 function populateCategories() {
@@ -289,7 +314,9 @@ function answerQuizQuestion(button, choice) {
 
   if (correct) {
     state.quizScore += 1;
-    elements.quizFeedback.textContent = `Correct. ${item.card.reference}`;
+    elements.quizFeedback.textContent = item.card.gotcha
+      ? `Correct. ${item.card.reference} — ${item.card.gotcha}`
+      : `Correct. ${item.card.reference}`;
   } else {
     elements.quizFeedback.textContent = `Not quite. Correct answer: ${item.card.answer} — ${item.card.reference}`;
   }
@@ -342,16 +369,24 @@ function resetProgress() {
   renderFlashcard();
 }
 
-function loadProgress() {
+function loadProgress(contentSetKey) {
+  const key = getStorageKey(contentSetKey);
   try {
-    return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+    return JSON.parse(window.localStorage.getItem(key) || '{}');
   } catch {
     return {};
   }
 }
 
 function saveProgress() {
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
+  window.localStorage.setItem(getStorageKey(state.activeContentSet), JSON.stringify(state.progress));
+}
+
+function getStorageKey(contentSetKey) {
+  if (contentSetKey === 'foi') {
+    return STORAGE_KEY;
+  }
+  return `${STORAGE_KEY}-${contentSetKey}`;
 }
 
 function shuffleArray(items) {
