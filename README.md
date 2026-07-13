@@ -1,14 +1,19 @@
-# CFI Checkride Study Notes + FOI Study App
+# CFI Checkride Study Notes + FOI + Oral Prep Study App
 
-This repository now includes both the original Area I study-note files and a static, mobile-friendly FAA Fundamentals of Instructing (FOI) flashcard and quiz app for GitHub Pages.
+This repository now includes the original study-note files, ACS-organized lesson plans, and a static mobile-friendly flashcard/quiz app with both an FOI deck and a DPE-style oral prep deck for GitHub Pages.
 
 ## What is in the repo
 
-### FOI study app
-- `index.html` — main entry point for the FOI app
+### Study app
+- `index.html` — main entry point for the FOI + Oral Prep app
 - `app.css` — mobile-first styling
-- `app.js` — flashcard, quiz, shuffle, filtering, and localStorage logic
-- `data/foi.json` — FOI study content used by both flashcards and quiz mode
+- `app.js` — flashcard, quiz, deck switching, shuffle, filtering, and localStorage logic
+- `data/foi.json` — FOI study content
+- `data/oral-prep.json` — ACS-aligned oral prep question bank (114 questions)
+
+### Oral prep markdown set
+- `oral-prep/README.md` — oral prep category index
+- `oral-prep/*.md` — per-category Q&A files for browsing/printing
 
 ### Existing study content preserved in the repo
 - `Task-A-Effects-of-Human-Behavior-and-Communication.md`
@@ -20,10 +25,11 @@ This repository now includes both the original Area I study-note files and a sta
 - `flight-review-flashcards.html`
 - `ACS-Task-Notes-Template.md`
 
-## FOI app features
+## App features
 - Flashcard mode with tap/click flip
 - **Got it** / **Review again** progress tracking saved in `localStorage`
-- Category filter for the seven FOI topic areas
+- Selectable deck: **FOI** or **Oral Prep**
+- Category filter for the current deck
 - Shuffle option for the current deck
 - Quiz mode using the same JSON content as the flashcards
 - Immediate feedback plus a score summary at the end of the quiz
@@ -55,8 +61,11 @@ Then open `http://localhost:8000`.
 6. Save the settings and wait for GitHub Pages to publish the site.
 7. Open the published site URL and use `index.html` as the landing page.
 
-## Add or edit FOI cards
-All flashcards and quiz questions live in `data/foi.json`.
+## Add or edit cards
+Deck content lives in:
+
+- `data/foi.json`
+- `data/oral-prep.json`
 
 Each card uses this structure:
 
@@ -70,7 +79,7 @@ Each card uses this structure:
 }
 ```
 
-### Supported categories in the current app
+### Supported categories in the FOI deck
 - Human Behavior and Effective Communication
 - The Learning Process
 - Effective Teaching
@@ -84,6 +93,14 @@ Each card uses this structure:
 - Reuse the existing category names if you want cards to appear under the current filter options.
 - Write concise prompts and accurate FAA-based answers.
 - The quiz mode automatically builds multiple-choice options from the same JSON file, so no extra quiz file is needed.
+
+### Oral prep card fields
+The oral prep deck also includes:
+
+- `area` (ACS area of operation)
+- `task` (ACS task)
+- `gotcha` (optional DPE follow-up/common miss)
+- `scenario` (optional boolean for scenario-style prompts)
 
 ## Existing notes usage
 The markdown task files remain in the repository and are linked from `index.html` so the new app lives alongside the original study content instead of replacing it.

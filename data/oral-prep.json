@@ -1,0 +1,1063 @@
+{
+  "title": "CFI Airplane Oral Prep Question Bank (FAA-S-ACS-25 aligned)",
+  "source": "FAA-S-ACS-25, PHAK FAA-H-8083-25, AFH FAA-H-8083-3, AIH FAA-H-8083-9, 14 CFR Parts 61/91, AC 61-65H",
+  "cards": [
+    {
+      "id": "op-001",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task A: Human Behavior and Effective Communication",
+      "category": "FOI: Human Behavior and Communication",
+      "prompt": "A learner gets defensive when corrected. Which defense mechanism is likely, and how should you respond as an instructor?",
+      "answer": "Likely rationalization, denial, or projection. Keep feedback objective, focus on observable performance, ask reflective questions, and assign a concrete improvement plan.",
+      "reference": "AIH FAA-H-8083-9 Ch. 2 and Ch. 3",
+      "gotcha": "DPE follow-up: distinguish criticism of behavior from criticism of the person.",
+      "scenario": true
+    },
+    {
+      "id": "op-002",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task A: Human Behavior and Effective Communication",
+      "category": "FOI: Human Behavior and Communication",
+      "prompt": "What are Maslow\u2019s hierarchy levels and how do they affect lesson readiness?",
+      "answer": "Physiological, safety/security, belonging, esteem, and self-actualization. If lower needs are unmet, motivation and learning degrade, so instructors address basic comfort, stress, and psychological safety first.",
+      "reference": "AIH FAA-H-8083-9 Ch. 2"
+    },
+    {
+      "id": "op-003",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task A: Human Behavior and Effective Communication",
+      "category": "FOI: Human Behavior and Communication",
+      "prompt": "Define the communication process and identify common barriers in flight training.",
+      "answer": "Source encodes message, receiver decodes, and feedback closes the loop. Barriers include lack of common experience, overuse of abstractions, interference, and confusion between symbol and symbolized object.",
+      "reference": "AIH FAA-H-8083-9 Ch. 3"
+    },
+    {
+      "id": "op-004",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task B: The Learning Process",
+      "category": "FOI: The Learning Process",
+      "prompt": "Explain the laws of learning (REEPIR) with one practical cockpit example.",
+      "answer": "Readiness, Exercise, Effect, Primacy, Intensity, Recency. Example: teaching checklist discipline correctly the first time (primacy), then repeated use (exercise) with immediate positive reinforcement (effect).",
+      "reference": "AIH FAA-H-8083-9 Ch. 4"
+    },
+    {
+      "id": "op-005",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task B: The Learning Process",
+      "category": "FOI: The Learning Process",
+      "prompt": "What are the levels of learning and how do you verify the highest level?",
+      "answer": "Rote, understanding, application, correlation. Correlation is shown when a learner applies knowledge in novel scenarios while prioritizing and making sound ADM decisions.",
+      "reference": "AIH FAA-H-8083-9 Ch. 4",
+      "gotcha": "Applicants often stop at \u201capplication\u201d examples."
+    },
+    {
+      "id": "op-006",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task B: The Learning Process",
+      "category": "FOI: The Learning Process",
+      "prompt": "What causes forgetting, and what can instructors do to reduce it?",
+      "answer": "Forgetting is driven by disuse, interference, and fading memory traces. Reduce it with meaningful context, frequent review, scenario practice, and immediate correction of errors.",
+      "reference": "AIH FAA-H-8083-9 Ch. 4"
+    },
+    {
+      "id": "op-007",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task C: Course Development, Lesson Plans, and Classroom Training",
+      "category": "FOI: Lesson Planning",
+      "prompt": "What are the required parts of a complete lesson plan?",
+      "answer": "Objective, standards, references, equipment/materials, elements/content, instructor and learner actions, schedule/time, completion standards, and evaluation/assignment.",
+      "reference": "AIH FAA-H-8083-9 Ch. 6; CFI ACS",
+      "gotcha": "Gotcha: completion standards must be measurable."
+    },
+    {
+      "id": "op-008",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task C: Course Development, Lesson Plans, and Classroom Training",
+      "category": "FOI: Lesson Planning",
+      "prompt": "How do you adapt a lesson plan for a learner who is behind schedule?",
+      "answer": "Keep standards unchanged, adjust pace and strategy: simplify tasks, chunk content, use targeted drills, assign remediation, and verify understanding before progression.",
+      "reference": "AIH FAA-H-8083-9 Ch. 6",
+      "scenario": true
+    },
+    {
+      "id": "op-009",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task D: Assessment and Critique",
+      "category": "FOI: Assessment and Critique",
+      "prompt": "Compare formative versus summative assessment in flight training.",
+      "answer": "Formative assessment occurs continuously during training and guides improvement; summative assessment evaluates whether final standards were met at the end of a stage or course.",
+      "reference": "AIH FAA-H-8083-9 Ch. 5"
+    },
+    {
+      "id": "op-010",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task D: Assessment and Critique",
+      "category": "FOI: Assessment and Critique",
+      "prompt": "What are characteristics of an effective oral critique after a flight?",
+      "answer": "Objective, timely, specific, collaborative, and linked to standards; include strengths, deficiencies, root causes, and a concrete improvement plan.",
+      "reference": "AIH FAA-H-8083-9 Ch. 5"
+    },
+    {
+      "id": "op-011",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task E: Instructor Responsibilities and Professionalism",
+      "category": "FOI: Professional Responsibilities",
+      "prompt": "What instructor responsibilities apply to endorsements and recordkeeping?",
+      "answer": "Instructors must ensure training meets applicable requirements, give accurate endorsements, maintain required records/signatures, and avoid endorsing applicants not prepared for safe operation.",
+      "reference": "14 CFR 61.189; 61.193; AC 61-65"
+    },
+    {
+      "id": "op-012",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task E: Instructor Responsibilities and Professionalism",
+      "category": "FOI: Professional Responsibilities",
+      "prompt": "How would you handle a learner who asks for a solo signoff but is not ready?",
+      "answer": "Decline endorsement, document deficiencies against standards, provide corrective training, and set objective criteria for reevaluation. Safety and regulatory compliance control the decision.",
+      "reference": "AIH FAA-H-8083-9 Ch. 8; 14 CFR 61.87",
+      "scenario": true
+    },
+    {
+      "id": "op-013",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task E: Instructor Responsibilities and Professionalism",
+      "category": "FOI: Professional Responsibilities",
+      "prompt": "What are signs of instructor professionalism during a checkride lesson presentation?",
+      "answer": "Accurate technical content, risk management integration, positive learning climate, clear standards, ethical conduct, and willingness to say \u201cI will verify\u201d when uncertain.",
+      "reference": "CFI ACS Area I"
+    },
+    {
+      "id": "op-014",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task F: Risk Management",
+      "category": "FOI: Risk Management",
+      "prompt": "Define the PAVE checklist and give one risk example for each element.",
+      "answer": "Pilot, Aircraft, enVironment, External pressures. Example risks: pilot fatigue, deferred maintenance item, gusty crosswind, schedule pressure.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 2; CFI ACS"
+    },
+    {
+      "id": "op-015",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task F: Risk Management",
+      "category": "FOI: Risk Management",
+      "prompt": "Explain the DECIDE model and how you teach it in real time.",
+      "answer": "Detect, Estimate, Choose, Identify, Do, Evaluate. Teach it by pausing during scenarios, verbalizing each step, and linking actions to outcomes and contingencies.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 2; AIH"
+    },
+    {
+      "id": "op-016",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task F: Risk Management",
+      "category": "FOI: Risk Management",
+      "prompt": "What is the 5P model and when should it be evaluated?",
+      "answer": "Plan, Plane, Pilot, Passengers, Programming; evaluate at preflight, takeoff, cruise, pre-descent, and before approach/landing, or whenever conditions change.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 2"
+    },
+    {
+      "id": "op-017",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task F: Risk Management",
+      "category": "FOI: Risk Management",
+      "prompt": "How do you explain transfer of learning to a student transitioning aircraft?",
+      "answer": "Positive transfer occurs when prior habits help; negative transfer when old habits interfere. Instructors identify differences explicitly and emphasize procedures unique to the new aircraft.",
+      "reference": "AIH FAA-H-8083-9 Ch. 4"
+    },
+    {
+      "id": "op-018",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task B: The Learning Process",
+      "category": "FOI: The Learning Process",
+      "prompt": "A learner keeps ballooning in the flare after multiple flights. Is this a plateaus issue or poor primacy, and what is your fix?",
+      "answer": "Usually poor primacy or inconsistent cues, not just a plateau. Re-teach sight picture and timing from a stabilized approach profile, then deliberate practice with immediate feedback.",
+      "reference": "AIH FAA-H-8083-9 Ch. 4; AFH Ch. 8",
+      "scenario": true
+    },
+    {
+      "id": "op-019",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task A: Human Behavior and Effective Communication",
+      "category": "FOI: Human Behavior and Communication",
+      "prompt": "How do you reduce learner anxiety before first solo?",
+      "answer": "Set clear standards, use progressive exposure, brief contingencies, normalize stress, and ensure recent successful repetitions. Anxiety decreases when competence and predictability rise.",
+      "reference": "AIH FAA-H-8083-9 Ch. 2; CFI ACS",
+      "scenario": true
+    },
+    {
+      "id": "op-020",
+      "area": "Area I \u2014 Fundamentals of Instructing",
+      "task": "Task E: Instructor Responsibilities and Professionalism",
+      "category": "FOI: Professional Responsibilities",
+      "prompt": "What does \u201cacceptance of responsibility\u201d mean for a CFI applicant?",
+      "answer": "Owning the safety and quality of instruction: accurate teaching, legal endorsements, honest evaluations, and refusing unsafe or noncompliant operations despite external pressure.",
+      "reference": "AIH FAA-H-8083-9 Ch. 8; CFI ACS"
+    },
+    {
+      "id": "op-021",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "A student says they took Benadryl last night and feel \u201cmostly fine.\u201d What do you do?",
+      "answer": "Do not fly until risk is acceptable; diphenhydramine is sedating and can impair performance beyond perceived effects. Use IMSAFE, discuss conservative no-fly interval, and reschedule if any impairment remains.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 17; FAA medication guidance",
+      "gotcha": "Common DPE follow-up: \u201cHow do you know impairment is gone?\u201d",
+      "scenario": true
+    },
+    {
+      "id": "op-022",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "What are the IMSAFE elements?",
+      "answer": "Illness, Medication, Stress, Alcohol, Fatigue, Emotion/Eating. It is a preflight personal risk screen, not a one-time checkbox.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 2"
+    },
+    {
+      "id": "op-023",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "What hypoxia types should pilots know and where are they most relevant?",
+      "answer": "Hypoxic, hypemic, stagnant, and histotoxic hypoxia. In GA altitude operations, hypoxic hypoxia is most relevant as partial pressure of oxygen decreases with altitude.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 17"
+    },
+    {
+      "id": "op-024",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "What are key hyperventilation signs and immediate corrective actions?",
+      "answer": "Symptoms include lightheadedness, tingling, visual disturbance, and anxiety. Correct by consciously slowing breathing and reducing stressors while maintaining aircraft control.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 17"
+    },
+    {
+      "id": "op-025",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "Explain middle-ear and sinus issues during descent and training implications.",
+      "answer": "Pressure cannot equalize if blocked, causing pain/disorientation and possible incapacitation. Instructors teach pressure management and reject flights with active congestion.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 17"
+    },
+    {
+      "id": "op-026",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "How does carbon monoxide poisoning present in piston aircraft?",
+      "answer": "Headache, dizziness, nausea, confusion, and cherry-red skin late. Use CO detector, open vents/windows, turn off cabin heat if suspected, and land ASAP.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 17; AFH emergency procedures"
+    },
+    {
+      "id": "op-027",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "What is spatial disorientation and which illusion is common after takeoff at night?",
+      "answer": "Spatial disorientation is conflicting sensory input leading to false attitude perception. Somatogravic illusion can cause a false nose-up sensation and dangerous push-over tendency.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 17; AFH instrument reference"
+    },
+    {
+      "id": "op-028",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "How do dehydration and heat stress affect pilot performance?",
+      "answer": "They degrade cognition, reaction time, and tolerance to workload; prevention includes hydration, cooling strategies, and conservative go/no-go decisions in hot conditions.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 17"
+    },
+    {
+      "id": "op-029",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "A student had one beer 9 hours ago. Is that legal and safe?",
+      "answer": "14 CFR 91.17 prohibits within 8 hours and while under influence; legal minimum is not always safe. Apply IMSAFE and conservative judgment regarding residual effects.",
+      "reference": "14 CFR 91.17; PHAK Ch. 17",
+      "scenario": true
+    },
+    {
+      "id": "op-030",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task A: Aeromedical Factors",
+      "category": "Aeromedical Factors",
+      "prompt": "How should you teach motion sickness mitigation for new students?",
+      "answer": "Use short lessons, smooth air when possible, cool ventilation, visual horizon references, and gradual adaptation. Stop early if symptoms worsen to avoid negative conditioning.",
+      "reference": "AIH; PHAK Ch. 17",
+      "scenario": true
+    },
+    {
+      "id": "op-031",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "Why does induced drag decrease as airspeed increases in level flight?",
+      "answer": "Higher airspeed requires lower angle of attack for the same lift, reducing strength of wingtip vortices and induced drag.",
+      "reference": "PHAK FAA-H-8083-25 Ch. 5"
+    },
+    {
+      "id": "op-032",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "What causes adverse yaw and how do you teach correction?",
+      "answer": "Down-going aileron increases drag on the rising wing, yawing opposite roll direction. Teach coordinated rudder with aileron and verify with slip/skid indicator and outside references.",
+      "reference": "PHAK Ch. 5; AFH Ch. 4"
+    },
+    {
+      "id": "op-033",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "Explain load factor changes in a level steep turn and stall-speed effect.",
+      "answer": "As bank increases in level flight, load factor rises and stall speed increases by the square root of load factor. At 60\u00b0 bank, load factor is about 2G and stall speed increases substantially.",
+      "reference": "PHAK Ch. 5; AFH performance maneuvers",
+      "gotcha": "DPE follow-up often asks for the 60\u00b0/2G relationship."
+    },
+    {
+      "id": "op-034",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "In a chandelle, when is maximum pitch attitude reached and why?",
+      "answer": "At about 90\u00b0 of turn, then bank is gradually reduced while maintaining increasing pitch to minimum controllable airspeed by rollout heading. It demonstrates coordinated energy management.",
+      "reference": "AFH FAA-H-8083-3 Ch. 9; CFI ACS"
+    },
+    {
+      "id": "op-035",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "What are key errors in lazy eights from an aerodynamic standpoint?",
+      "answer": "Poor coordination, incorrect pitch/bank timing at 45\u00b0/90\u00b0/135\u00b0 points, and inability to reach minimum airspeed at 180\u00b0 with proper heading/altitude control.",
+      "reference": "AFH Ch. 9; CFI ACS"
+    },
+    {
+      "id": "op-036",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "Explain pivotal altitude for eights on pylons.",
+      "answer": "Pivotal altitude approximates groundspeed squared divided by 11.3 (knots version) and changes with wind/groundspeed. Pitch adjustments keep the pylon visually fixed by changing line-of-sight geometry.",
+      "reference": "AFH Ch. 9",
+      "gotcha": "Gotcha: use groundspeed, not indicated airspeed."
+    },
+    {
+      "id": "op-037",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "Differentiate an aerodynamic stall from low airspeed.",
+      "answer": "A stall is exceeding critical angle of attack, regardless of indicated airspeed, attitude, or power setting.",
+      "reference": "PHAK Ch. 5; AFH slow flight/stalls"
+    },
+    {
+      "id": "op-038",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "What is the proper spin awareness teaching emphasis for CFI applicants?",
+      "answer": "Teach stall/spin relationship, recognition, prevention, and recovery concepts using POH/AFM limitations; avoid intentional spins unless aircraft and instructor are approved and current for spin training where required.",
+      "reference": "14 CFR 61.183(i); AFH Ch. 4; POH/AFM"
+    },
+    {
+      "id": "op-039",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "How do you explain slow flight objective under current ACS/AFH guidance?",
+      "answer": "Slow flight teaches recognition and management near critical AOA with coordinated control, proper trim/power use, and avoidance of stall warning trends while maintaining specified performance.",
+      "reference": "AFH Ch. 4; Airman Certification Standards"
+    },
+    {
+      "id": "op-040",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "Why does left-turning tendency increase at high power and low airspeed?",
+      "answer": "Torque, P-factor, spiraling slipstream, and gyroscopic effects are more pronounced when power is high and aerodynamic control effectiveness is lower.",
+      "reference": "PHAK Ch. 5; AFH"
+    },
+    {
+      "id": "op-041",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "A student repeatedly overshoots rollout heading in steep turns. What aerodynamic and instructional corrections do you apply?",
+      "answer": "Likely poor anticipation and overbanking with delayed coordination. Teach lead rollout, stable bank reference, coordinated rudder, and smooth elevator back-pressure for altitude hold.",
+      "reference": "AFH Ch. 9; AIH critique methods",
+      "scenario": true
+    },
+    {
+      "id": "op-042",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "What is accelerated stall risk during maneuvering flight?",
+      "answer": "High load factor can cause stall at speeds above 1G stall speed, especially in steep turns or abrupt pull-ups. Avoid abrupt control inputs and teach maneuvering speed limitations.",
+      "reference": "PHAK Ch. 5; AFH"
+    },
+    {
+      "id": "op-043",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "How do slips affect aerodynamics and landing use?",
+      "answer": "Forward slip increases drag and descent rate with cross-controlled inputs; side slip aligns longitudinal axis with runway centerline in crosswind landing.",
+      "reference": "AFH Ch. 8"
+    },
+    {
+      "id": "op-044",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task B: Principles of Flight",
+      "category": "Principles of Flight and Maneuver Aerodynamics",
+      "prompt": "Why can go-arounds from full-flap configurations become hazardous?",
+      "answer": "Pitch-up tendency, drag, and configuration changes demand prompt directional and pitch control with proper flap retraction schedule and obstacle awareness.",
+      "reference": "AFH Ch. 8; POH procedures"
+    },
+    {
+      "id": "op-045",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "Describe the four-stroke cycle and why mixture matters at altitude.",
+      "answer": "Intake, compression, power, exhaust. As altitude increases, air density drops, so mixture often requires leaning to maintain proper fuel-air ratio and smooth power.",
+      "reference": "PHAK Ch. 7; POH/AFM"
+    },
+    {
+      "id": "op-046",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "What are common carburetor icing conditions and indications?",
+      "answer": "Can occur with visible moisture and moderate temperatures; symptoms include RPM drop in fixed-pitch props or manifold pressure drop/roughness. Apply carb heat per POH.",
+      "reference": "PHAK Ch. 7; AFH emergency ops"
+    },
+    {
+      "id": "op-047",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "How does electrical alternator failure usually present in light aircraft?",
+      "answer": "Low-voltage/ammeter indications, equipment brownout, and eventual battery depletion. Shed load, troubleshoot per checklist, and plan landing before total electrical loss.",
+      "reference": "POH/AFM; AFH emergency procedures"
+    },
+    {
+      "id": "op-048",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "Explain why density altitude degrades takeoff and climb performance.",
+      "answer": "Higher density altitude reduces engine power, propeller thrust, and wing lift while increasing true airspeed for a given indicated speed, lengthening takeoff and reducing climb rate.",
+      "reference": "PHAK Ch. 11; AFH performance"
+    },
+    {
+      "id": "op-049",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "What performance factors must be included before every takeoff?",
+      "answer": "Weight and balance, runway length/condition/slope, pressure altitude, temperature, wind, obstacles, and POH/AFM performance data with safety margin.",
+      "reference": "14 CFR 91.103; POH/AFM"
+    },
+    {
+      "id": "op-050",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "How do you explain VA to a student?",
+      "answer": "VA is design maneuvering speed at a given weight, not a guarantee against all structural damage; abrupt full control deflection above VA can exceed limits, and VA decreases with weight.",
+      "reference": "PHAK Ch. 9; POH/AFM",
+      "gotcha": "Gotcha: \u201cbelow VA = always safe\u201d is incorrect."
+    },
+    {
+      "id": "op-051",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "What is the difference between Vx and Vy, and when would each be used?",
+      "answer": "Vx gives best angle of climb for obstacle clearance; Vy gives best rate of climb to gain altitude fastest. Both vary with altitude and aircraft condition.",
+      "reference": "AFH Ch. 10; POH"
+    },
+    {
+      "id": "op-052",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "A student wants to depart at max gross on a hot afternoon from a short runway. How do you decide?",
+      "answer": "Run full POH performance calculations with conservative margins, evaluate abort points and alternatives, and decline operation if margins are inadequate.",
+      "reference": "POH/AFM; 14 CFR 91.103",
+      "scenario": true
+    },
+    {
+      "id": "op-053",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "What is required for legal and practical fuel planning for VFR day and night?",
+      "answer": "Legal minimum under 14 CFR 91.151 is 30 minutes reserve day and 45 minutes night at normal cruise; practical planning should include extra reserve for delays and contingencies.",
+      "reference": "14 CFR 91.151",
+      "gotcha": "DPE follow-up: \u201cWhat reserve do you personally teach?\u201d"
+    },
+    {
+      "id": "op-054",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "How do center-of-gravity limits affect controllability?",
+      "answer": "Forward CG raises stall speed and increases required tail-down force/landing distance; aft CG reduces stability and can make stall/spin recovery harder.",
+      "reference": "PHAK Ch. 9; POH/AFM"
+    },
+    {
+      "id": "op-055",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "What does \u201cknown icing approval\u201d mean for GA trainers?",
+      "answer": "Most trainers are not approved for known icing. Pilots must avoid known icing conditions and exit inadvertent icing immediately using published procedures.",
+      "reference": "POH/AFM limitations; AIM guidance"
+    },
+    {
+      "id": "op-056",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task C: Airplane Systems and Performance",
+      "category": "Aircraft Systems and Performance",
+      "prompt": "How would you teach systems-based troubleshooting after rough engine in cruise?",
+      "answer": "Maintain aircraft control, use checklist (carb heat/mixture/fuel selection/ignition), assess nearest suitable landing, and brief contingency if power loss occurs.",
+      "reference": "AFH emergency operations; POH",
+      "scenario": true
+    },
+    {
+      "id": "op-057",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "What weather sources satisfy 14 CFR 91.103 preflight responsibilities?",
+      "answer": "All available information relevant to the flight, including weather reports/forecasts, fuel requirements, alternatives, known delays, and runway data.",
+      "reference": "14 CFR 91.103; AIM 7"
+    },
+    {
+      "id": "op-058",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "Decode this METAR element: \u201cBKN015 OVC030 2SM -RA BR.\u201d",
+      "answer": "Broken at 1,500 ft AGL, overcast at 3,000 ft AGL, 2 statute miles visibility, light rain and mist. Conditions are marginal and possibly IFR depending on airspace/class.",
+      "reference": "AIM 7; Aviation Weather resources"
+    },
+    {
+      "id": "op-059",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "How do TAFs differ from METARs for planning?",
+      "answer": "METAR reports observed conditions; TAF provides forecast trends with change groups (FM, TEMPO, PROB where applicable). Use both for go/no-go decisions.",
+      "reference": "AIM 7; Aviation Weather Handbook"
+    },
+    {
+      "id": "op-060",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "What does an AIRMET Sierra/Tango/Zulu indicate?",
+      "answer": "Sierra: IFR/mountain obscuration; Tango: turbulence/strong winds; Zulu: icing/freezing level hazards.",
+      "reference": "AIM 7; Aviation Weather Handbook"
+    },
+    {
+      "id": "op-061",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "When would a SIGMET be especially critical for GA training flights?",
+      "answer": "Convective SIGMETs (embedded/severe thunderstorms) and non-convective SIGMETs for severe icing/turbulence/dust storms/volcanic ash indicate high-risk conditions often unsuitable for training.",
+      "reference": "AIM 7"
+    },
+    {
+      "id": "op-062",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "Explain basic frontal weather patterns a CFI should teach.",
+      "answer": "Cold fronts often bring convective activity and gusts; warm fronts bring widespread stratiform clouds/precipitation; occluded/stationary fronts can create prolonged poor conditions.",
+      "reference": "PHAK Ch. 12; Aviation Weather Handbook"
+    },
+    {
+      "id": "op-063",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "A student proposes \u201cscud running\u201d under a lowering ceiling to get home. How do you respond?",
+      "answer": "Reject the plan, explain CFIT and VFR-into-IMC risk, evaluate alternates/diversions, and use ADM models to choose conservative options.",
+      "reference": "PHAK Ch. 2; NTSB safety themes",
+      "scenario": true
+    },
+    {
+      "id": "op-064",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "How do winds aloft forecasts influence cross-country planning?",
+      "answer": "They affect groundspeed, fuel burn, ETA, and altitude selection; evaluate multiple altitudes to optimize performance and reserve margins.",
+      "reference": "PHAK Ch. 16; XC planning guidance"
+    },
+    {
+      "id": "op-065",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "What is a temperature-dewpoint spread and why does it matter?",
+      "answer": "Small spread indicates high relative humidity and fog/low cloud potential, especially around sunset/sunrise and light winds.",
+      "reference": "PHAK Ch. 12"
+    },
+    {
+      "id": "op-066",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task D: Weather Information",
+      "category": "Weather and Weather Services",
+      "prompt": "How should a CFI brief convective weather avoidance minimums?",
+      "answer": "Maintain large stand-off distances, avoid flight under anvils, anticipate outflow boundaries/microbursts, and never rely on penetrating cells in light GA aircraft.",
+      "reference": "AIM thunderstorm guidance; Aviation Weather Handbook"
+    },
+    {
+      "id": "op-067",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "A student pilot wants to solo to an airport 30 NM away. What endorsements are required?",
+      "answer": "At minimum: student pilot solo make/model endorsement, 90-day solo endorsement, and a specific solo cross-country endorsement with route, plus repeated endorsements as required by 61.93.",
+      "reference": "14 CFR 61.87, 61.93; AC 61-65H",
+      "gotcha": "DPE follow-up: include repeated 90-day and route-specific requirements.",
+      "scenario": true
+    },
+    {
+      "id": "op-068",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "What is required by regulation before any flight regarding planning?",
+      "answer": "Pilot in command must become familiar with all available information, including weather, fuel, alternatives, known delays, and runway lengths/performance for destination and alternates.",
+      "reference": "14 CFR 91.103"
+    },
+    {
+      "id": "op-069",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "How do you compute true course to heading in a nav log?",
+      "answer": "Start with true course, apply variation for magnetic course, then wind correction angle for magnetic heading, and account for deviation if applicable.",
+      "reference": "PHAK Ch. 16"
+    },
+    {
+      "id": "op-070",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "What are VFR weather minimums in Class E below 10,000 MSL?",
+      "answer": "3 statute miles visibility and cloud clearance of 500 below, 1,000 above, 2,000 horizontal (3-152).",
+      "reference": "14 CFR 91.155"
+    },
+    {
+      "id": "op-071",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "How do Class B, C, D, and E airspace entry requirements differ for student operations?",
+      "answer": "Class B: explicit ATC clearance; Class C/D: two-way communication before entry; Class E generally no communication required for VFR but weather minima still apply. Student pilots have Class B training/endorsement limits per 61.95.",
+      "reference": "14 CFR 91.131, 91.130, 91.129, 61.95"
+    },
+    {
+      "id": "op-072",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "What is a Special VFR clearance and key limitations?",
+      "answer": "Allows VFR within controlled surface airspace below basic VFR minima with at least 1 SM visibility and clear of clouds; at night, fixed-wing pilot must be instrument rated and aircraft IFR equipped.",
+      "reference": "14 CFR 91.157",
+      "gotcha": "Gotcha: student pilots generally should avoid relying on SVFR."
+    },
+    {
+      "id": "op-073",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "How do you teach lost procedures to student pilots?",
+      "answer": "Use \u201cClimb, Communicate, Confess, Comply,\u201d plus chart/GPS cross-check, VOR radials if available, and ATC assistance early before fuel or weather margins shrink.",
+      "reference": "PHAK Ch. 16; AIM 6"
+    },
+    {
+      "id": "op-074",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "What checks verify GPS RAIM/integrity relevance in basic training?",
+      "answer": "Teach database currency, annunciation monitoring, and cross-check with pilotage/dead reckoning. For IFR, integrity requirements are stricter; VFR still requires situational cross-checks.",
+      "reference": "AIM GPS guidance; PHAK Ch. 16"
+    },
+    {
+      "id": "op-075",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "A student plans direct over rising terrain with minimal altitude margin. What should you teach?",
+      "answer": "Use terrain/obstruction planning with conservative altitude, checkpoint options, weather escape routes, and oxygen/performance considerations where applicable.",
+      "reference": "PHAK Ch. 15-16; risk management",
+      "scenario": true
+    },
+    {
+      "id": "op-076",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task E: Navigation and Flight Planning",
+      "category": "Navigation, Cross-Country Planning, and Airspace",
+      "prompt": "How are TFRs checked and briefed before flight?",
+      "answer": "Use official FAA sources (NOTAMs/FSS/approved briefings), plot affected areas/times/altitudes, and develop reroutes before departure.",
+      "reference": "14 CFR 91.103; NOTAM system guidance"
+    },
+    {
+      "id": "op-077",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "What are recent flight experience requirements to carry passengers day and night?",
+      "answer": "Day: 3 takeoffs/landings within preceding 90 days in same category/class/type if required. Night: 3 takeoffs/landings to full stop during 1 hour after sunset to 1 hour before sunrise.",
+      "reference": "14 CFR 61.57(a),(b)"
+    },
+    {
+      "id": "op-078",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "Can a private pilot pay less than pro-rata share on a trip with passengers?",
+      "answer": "No, private pilot may share only pro-rata operating expenses with passengers and must have a common purpose for the flight.",
+      "reference": "14 CFR 61.113(c)"
+    },
+    {
+      "id": "op-079",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "What documents and inspections are required for aircraft airworthiness currency?",
+      "answer": "Required inspections include annual and, if for hire/flight instruction for hire, 100-hour; plus AD compliance and required records/equipment per applicable rules.",
+      "reference": "14 CFR 91.409; 39; 91.205"
+    },
+    {
+      "id": "op-080",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "What are basic VFR cloud clearance and visibility minima exceptions in Class G daytime below 1,200 AGL?",
+      "answer": "Generally 1 SM and clear of clouds in many Class G daytime conditions, but instructors must teach exact table by altitude/time/airspace and use conservative personal minima.",
+      "reference": "14 CFR 91.155 table"
+    },
+    {
+      "id": "op-081",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "When are seat belts and shoulder harnesses required?",
+      "answer": "Pilots must ensure passengers are briefed and secured during movement/takeoff/landing; shoulder harness use is required for each front seat when installed.",
+      "reference": "14 CFR 91.107"
+    },
+    {
+      "id": "op-082",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "What are right-of-way rules between aircraft categories?",
+      "answer": "In distress has priority, then generally balloon, glider, airship, airplane/rotorcraft; converging and overtaking rules still apply, and lower aircraft on approach has right-of-way with caveats.",
+      "reference": "14 CFR 91.113"
+    },
+    {
+      "id": "op-083",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "What minimum safe altitudes apply over congested and non-congested areas?",
+      "answer": "Over congested areas: 1,000 ft above highest obstacle within 2,000 ft; elsewhere 500 ft above surface except over open water/sparsely populated with no hazard.",
+      "reference": "14 CFR 91.119"
+    },
+    {
+      "id": "op-084",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "Can a student pilot act as PIC carrying a passenger?",
+      "answer": "No. Student pilot limitations prohibit carrying passengers and several other operations.",
+      "reference": "14 CFR 61.89"
+    },
+    {
+      "id": "op-085",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "A renter asks to fly with an inoperative landing light during daytime. Is it legal?",
+      "answer": "If daytime VFR and light is not required by type cert/KOEL/AD/91.205 for that operation, aircraft may be operated using 91.213(d) process (deactivate/placard and records as required).",
+      "reference": "14 CFR 91.205, 91.213",
+      "scenario": true
+    },
+    {
+      "id": "op-086",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task F: National Airspace System and Regulations",
+      "category": "Regulations (14 CFR Parts 61/91)",
+      "prompt": "What are careless or reckless operation implications for instruction?",
+      "answer": "Any operation endangering life/property can violate 91.13 regardless of other compliance; instructors teach conservative decision-making and intervene before risk escalates.",
+      "reference": "14 CFR 91.13"
+    },
+    {
+      "id": "op-087",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "What regulation requires instructors to sign and maintain records of endorsements?",
+      "answer": "CFIs must sign each student logbook endorsement and maintain records of each endorsement and training given.",
+      "reference": "14 CFR 61.189"
+    },
+    {
+      "id": "op-088",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "What are the three core pre-solo endorsements for airplane students?",
+      "answer": "Aeronautical knowledge test for pre-solo, pre-solo flight training in make/model, and 90-day solo flight endorsement.",
+      "reference": "14 CFR 61.87(b),(c),(n); AC 61-65H"
+    },
+    {
+      "id": "op-089",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "What endorsement is required for student solo in Class B airspace?",
+      "answer": "Specific Class B training and logbook endorsement for that Class B airspace and airports, per 61.95 with instructor determination.",
+      "reference": "14 CFR 61.95; AC 61-65H"
+    },
+    {
+      "id": "op-090",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "Which endorsements are needed for private pilot practical test?",
+      "answer": "Knowledge test review endorsement and practical test endorsement certifying required training/preparedness under 61.39 and 61.103/109.",
+      "reference": "14 CFR 61.39; AC 61-65H"
+    },
+    {
+      "id": "op-091",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "What must a 61.31 complex/high-performance endorsement state?",
+      "answer": "Instructor certifies person received and logged ground/flight training and is proficient to operate complex or high-performance airplane as applicable.",
+      "reference": "14 CFR 61.31(e),(f); AC 61-65H"
+    },
+    {
+      "id": "op-092",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "When is a tailwheel endorsement required and what does it cover?",
+      "answer": "Required to act as PIC in a tailwheel airplane; includes normal/crosswind takeoffs/landings, wheel landings, and go-around procedures.",
+      "reference": "14 CFR 61.31(i); AC 61-65H"
+    },
+    {
+      "id": "op-093",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "Can you combine multiple endorsements in one logbook entry?",
+      "answer": "Yes, if each required element is clearly documented and regulatory language intent is fully met; clarity and completeness are critical.",
+      "reference": "AC 61-65H"
+    },
+    {
+      "id": "op-094",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "A student\u2019s 90-day solo endorsement expired yesterday but they flew today anyway. What now?",
+      "answer": "Ground the student from further solo, document the lapse, provide remedial review as needed, and issue a new endorsement only after verifying proficiency and compliance.",
+      "reference": "14 CFR 61.87(n); instructor responsibilities",
+      "scenario": true
+    },
+    {
+      "id": "op-095",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "How do you verify solo cross-country endorsement compliance before dispatch?",
+      "answer": "Check student certificate and medical/BasicMed applicability, current pre-solo and 90-day solo endorsements, route-specific solo XC authorization, and weather/planning competency.",
+      "reference": "14 CFR 61.87, 61.93; AC 61-65H",
+      "scenario": true
+    },
+    {
+      "id": "op-096",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task G: Endorsements and Logbook Entries",
+      "category": "Endorsements and Logbook Entries",
+      "prompt": "What endorsement does a CFI candidate need for spin training?",
+      "answer": "A logbook endorsement from an authorized instructor certifying spin training and proficiency in instructional-level spin awareness/recovery per CFI requirements.",
+      "reference": "14 CFR 61.183(i); AC 61-65H"
+    },
+    {
+      "id": "op-097",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "What personal documents must a pilot carry when acting as required crewmember?",
+      "answer": "Pilot certificate (or privileges), photo ID, and medical certificate if required for that operation.",
+      "reference": "14 CFR 61.3(a)"
+    },
+    {
+      "id": "op-098",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "What aircraft documents are required on board?",
+      "answer": "Airworthiness certificate, registration certificate, operating limitations (including POH/AFM placards), and current weight and balance information.",
+      "reference": "14 CFR 91.203; 91.9"
+    },
+    {
+      "id": "op-099",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "What makes an aircraft unairworthy even if it has a current annual?",
+      "answer": "Any unresolved condition that fails type design or safe operation standards, overdue required inspections, inoperative required equipment not handled per regulation, or noncompliance with ADs.",
+      "reference": "14 CFR 3.5/21/39 principles; 91.7, 91.213"
+    },
+    {
+      "id": "op-100",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "Who is responsible for determining aircraft is in condition for safe flight?",
+      "answer": "The PIC, and no person may operate an aircraft unless it is airworthy.",
+      "reference": "14 CFR 91.7"
+    },
+    {
+      "id": "op-101",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "How do you teach students to check AD compliance practically?",
+      "answer": "Review maintenance records for recurring and one-time AD entries, verify method of compliance and next due times/hours, and reconcile with aircraft serial/component applicability.",
+      "reference": "14 CFR Part 39; maintenance records"
+    },
+    {
+      "id": "op-102",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "What are MEL vs KOEL concepts for training aircraft?",
+      "answer": "Most small training aircraft do not have an MEL. KOEL in POH lists equipment required for specific kinds of operation; otherwise use 91.213(d) process.",
+      "reference": "14 CFR 91.213; POH/AFM"
+    },
+    {
+      "id": "op-103",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "A checkride aircraft has an inop strobe light for day VFR. How do you evaluate legality?",
+      "answer": "Determine if required by 91.205/KOEL/type design/AD; if not required for operation, follow 91.213(d) deactivation/placard and maintenance record procedure before flight.",
+      "reference": "14 CFR 91.205, 91.213",
+      "scenario": true
+    },
+    {
+      "id": "op-104",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task H: Certificates and Documents",
+      "category": "Certificates, Documents, and Airworthiness",
+      "prompt": "What is the difference between \u201cairworthy\u201d and \u201clegal to dispatch\u201d in training discussions?",
+      "answer": "Airworthy means conforming to type design and safe condition. Legal dispatch also requires regulatory compliance for the intended operation; both must be satisfied.",
+      "reference": "14 CFR 91.7; 91.205; POH"
+    },
+    {
+      "id": "op-105",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "What additional preflight planning should be emphasized for night VFR?",
+      "answer": "Lighting systems, weather/terrain visibility, route checkpoints, alternates, flashlight/spares, personal fatigue status, and increased reserve margins.",
+      "reference": "PHAK Ch. 17; AFH night ops"
+    },
+    {
+      "id": "op-106",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "What oxygen requirements apply above 12,500 MSL?",
+      "answer": "Crew must use supplemental oxygen above 12,500 MSL up to and including 14,000 MSL when over 30 minutes, and continuously above 14,000 MSL; passengers provided above 15,000 MSL.",
+      "reference": "14 CFR 91.211"
+    },
+    {
+      "id": "op-107",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "How does night visual illusion risk change approach technique?",
+      "answer": "Use stabilized approach criteria, cross-check instruments and glidepath aids, avoid black-hole illusions, and resist abrupt pitch/power changes from false cues.",
+      "reference": "PHAK Ch. 17; AFH landing"
+    },
+    {
+      "id": "op-108",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "What immediate priorities apply after engine failure after takeoff?",
+      "answer": "Maintain aircraft control (pitch for best glide or as appropriate), select landing area, configure/attempt restart only if altitude/time permit, and communicate/secure as able.",
+      "reference": "AFH emergency operations; POH"
+    },
+    {
+      "id": "op-109",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "How should a CFI teach emergency descent and risk tradeoffs?",
+      "answer": "Emphasize rapid but controlled descent, structural speed awareness, passenger considerations, terrain/traffic avoidance, and checklist discipline.",
+      "reference": "AFH emergency procedures; POH"
+    },
+    {
+      "id": "op-110",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "A learner wants to continue a night XC with a failed panel light and unfamiliar airport ahead. What do you do?",
+      "answer": "Apply PAVE/5P, evaluate remaining systems and workload, and generally divert to a familiar suitable airport rather than press on with degraded situational awareness.",
+      "reference": "Risk management models; AFH",
+      "scenario": true
+    },
+    {
+      "id": "op-111",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "How do you integrate PAVE, IMSAFE, DECIDE, and 5P without making it \u201cchecklist theater\u201d?",
+      "answer": "Use them at natural decision points with specific hazards, mitigations, and trigger points; tie each model to an action, not just vocabulary recitation.",
+      "reference": "CFI ACS risk management"
+    },
+    {
+      "id": "op-112",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "What is your teaching strategy for partial-power emergencies in pattern work?",
+      "answer": "Teach early recognition, immediate pitch and runway/field selection, conservative go-around criteria, and repetition with increasing complexity only after stable performance.",
+      "reference": "AFH emergency and traffic pattern chapters",
+      "scenario": true
+    },
+    {
+      "id": "op-113",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "How should you brief fire in flight in a piston single?",
+      "answer": "Aviate, then execute checklist memory items (mixture idle cutoff/fuel selector off/master as directed), initiate emergency descent/landing, communicate Mayday when able.",
+      "reference": "POH emergency checklist; AFH"
+    },
+    {
+      "id": "op-114",
+      "area": "Area II \u2014 Technical Subject Areas",
+      "task": "Task I: Special Operations and Emergency Procedures",
+      "category": "Night, High-Altitude, Emergency Operations, and Risk Management",
+      "prompt": "A student wants to launch despite \u201cget-there\u201d pressure for a family event. Which risk model best surfaces that hazard?",
+      "answer": "External pressure in PAVE and Passengers/Plan in 5P are key. Use DECIDE to create alternatives and objective no-go triggers before departure.",
+      "reference": "PHAK Ch. 2; CFI ACS",
+      "scenario": true
+    }
+  ]
+}

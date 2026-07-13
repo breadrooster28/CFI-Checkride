@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CFI Checkride FOI Study App</title>
+  <title>CFI Checkride Study App</title>
   <link rel="stylesheet" href="app.css">
   <script defer src="app.js"></script>
 </head>
@@ -11,8 +11,8 @@
   <header class="hero">
     <div class="hero__content">
       <p class="eyebrow">CFI Checkride Study</p>
-      <h1>FOI flashcards and quiz</h1>
-      <p class="hero__text">A mobile-friendly, static study app for the FAA Fundamentals of Instructing, built to work directly on GitHub Pages.</p>
+      <h1>FOI + Oral Prep flashcards and quiz</h1>
+      <p class="hero__text">A mobile-friendly, static study app for FAA CFI oral prep, built to work directly on GitHub Pages.</p>
       <p class="hero__subtext">Your progress stays on this device using localStorage.</p>
     </div>
   </header>
@@ -28,6 +28,13 @@
       </div>
 
       <div class="controls">
+        <label class="field">
+          <span>Content set</span>
+          <select id="contentSetSelect">
+            <option value="foi">FOI deck</option>
+            <option value="oral-prep">Oral Prep deck</option>
+          </select>
+        </label>
         <label class="field">
           <span>Category</span>
           <select id="categorySelect"></select>
@@ -80,7 +87,7 @@
 
       <section id="quizPanel" class="study-panel is-hidden" aria-labelledby="quizTab">
         <div class="quiz-toolbar">
-          <p class="quiz-toolbar__note">Quiz questions use the same FOI card content as the flashcards.</p>
+          <p id="quizSourceNote" class="quiz-toolbar__note">Quiz questions use the selected card deck.</p>
           <button id="startQuizButton" class="button button--secondary" type="button">Start quiz</button>
         </div>
 
@@ -98,7 +105,7 @@
 
     <section class="panel panel--resources">
       <h2>Existing study content</h2>
-      <p>This repo already includes study notes and a separate flight review flashcard page. They are preserved here alongside the new FOI app.</p>
+      <p>This repo already includes study notes and a separate flight review flashcard page. They are preserved here alongside the study app and oral prep bank.</p>
 
       <div class="resource-group">
         <h3>Area I task notes</h3>
@@ -109,6 +116,14 @@
           <li><a href="Task-D-Student-Evaluation-Assessment-Testing.md">Task D — Student Evaluation, Assessment, and Testing</a></li>
           <li><a href="Task-E-Effective-Teaching-in-Professional-Environment.md">Task E — Effective Teaching in a Professional Environment</a></li>
           <li><a href="Task-F-Elements-of-Effective-Teaching-Risk-Management.md">Task F — Elements of Effective Teaching and Risk Management</a></li>
+        </ul>
+      </div>
+
+      <div class="resource-group">
+        <h3>Oral prep question bank (new)</h3>
+        <ul class="resource-list">
+          <li><a href="oral-prep/README.md">Oral prep index (markdown)</a></li>
+          <li><a href="data/oral-prep.json">Oral prep JSON question bank</a></li>
         </ul>
       </div>
 
